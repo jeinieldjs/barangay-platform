@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
 
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
+
 end
