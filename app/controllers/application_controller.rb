@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
         if resource.admin?
             admin_dashboard_index_path
         else
-            trader_dashboard_index_path
+            resident_dashboard_index_path
          end
     end
 
