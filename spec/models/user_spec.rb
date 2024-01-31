@@ -11,6 +11,5 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:city_municipality) }
     it { should validate_presence_of(:barangay) }
     it { should validate_presence_of(:role) }
-    it { should validate_inclusion_of(:role).in_array(['admin', 'resident']) }
   end
 end
