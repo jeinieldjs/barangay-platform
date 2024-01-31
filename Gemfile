@@ -57,6 +57,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1'
 
   gem 'shoulda-matchers'
+
+  gem 'rest-client'
 end
 
 group :development do
