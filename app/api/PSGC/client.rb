@@ -2,7 +2,7 @@ require_relative 'request'
 
 module PSGC
     class Client
-        def self.fetch_province
+        def self.fetch_provinces
             response = Request.call(http_method: 'get', endpoint: "/provinces/" )
         end
 

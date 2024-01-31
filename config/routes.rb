@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'psgc/fetch_provinces'
+    get 'psgc/fetch_cities_municipalities'
+    get 'psgc/fetch_barangays'
+  end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
