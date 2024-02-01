@@ -36,6 +36,24 @@
     <%= f.text_field :complete_address, placeholder: "Enter Your Complete Address" %>
   </div>
 
+  <div class="field">
+    <%= f.label :province %><br />
+    <%= f.select :province, options_for_select(@provinces.map { |province| [province["name"], province["code"]] }), prompt: 'Select Province' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city_municipality, 'City/Municipality' %><br />
+    <%= f.select :city_municipality,  prompt: 'Select City or Municipality' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :barangay, 'Barangay' %><br />
+    <%= f.select :barangay,  prompt: 'Select Barangay' %>
+  </div>
+
+  <%= f.hidden_field :role, value: User.roles[:resident] %>
+  <%= f.hidden_field :status, value: User.statuses[:pending] %>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

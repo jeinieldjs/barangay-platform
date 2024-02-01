@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'psgc/fetch_cities_municipalities/:province_code', to: 'psgc#fetch_cities_municipalities'
     get 'psgc/fetch_barangays/:city_or_municipality_code', to: 'psgc#fetch_barangays'
   end
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
