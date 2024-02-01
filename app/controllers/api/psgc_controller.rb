@@ -13,6 +13,6 @@ class Api::PsgcController < ApplicationController
   def fetch_barangays
     city_or_municipality_code = params[:city_or_municipality_code]
     barangays = PSGC::Client.fetch_barangays(city_or_municipality_code)
-    render json: brangays
+    render json: barangays
   end
 end
