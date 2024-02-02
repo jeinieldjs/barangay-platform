@@ -1,7 +1,7 @@
 
 <div class='log-form-container'>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "log-form" }) do |f| %>
-  <h2>Log in Form</h2>
+  <h2>Log in Form</h2><hr>
   <div class="log-field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "log-input" %>

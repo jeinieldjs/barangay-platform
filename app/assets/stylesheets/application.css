@@ -54,7 +54,7 @@ nav {
 } 
 /*log forms*/
 
-.log-form-container {
+.log-form-container, .reg-form-container {
     display: flex;
     align-items: center;
     margin: auto;
@@ -65,24 +65,24 @@ nav {
     border: 1px solid #5C821A;
     width: 30%; 
 }
-.log-form {
+.log-form, .reg-form {
     width: 70%;
     margin-top: 40px;
     margin-bottom:40px;
 }
-.log-form h2 {
+.log-form h2, .reg-form h2 {
     text-transform: uppercase;
     text-align: center;
 }
-.log-field {
+.log-field, .reg-field {
     margin-top: 15px;
 }
-.log-input {
+.log-input, .reg-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
-.log-submit {
+.log-submit, .reg-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -91,7 +91,7 @@ nav {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover {
+.log-submit:hover, .reg-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
