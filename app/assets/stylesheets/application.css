@@ -95,6 +95,9 @@ nav {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
-   
+}
+/*admin dashboard styles*/
+.admin-dash-wrapper {
+    padding: 20px;
 }
     
