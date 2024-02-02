@@ -19,3 +19,36 @@
     padding: 0;
     margin: 0;
  }
+/*styles for navbar*/
+nav {
+    padding: 10px;
+    background-color: #5C821A;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-between;
+}
+.nav-links-container { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.nav-links {
+    list-style: none;
+    margin-right: 10px; 
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.nav-links a:hover {
+   background-color:#FFFFFF ;
+   color: #5C821A;
+   border-radius: 5px;
+} 
