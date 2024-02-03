@@ -7,7 +7,7 @@
      <% @residents.sort_by { |resident| [resident.last_name, resident.first_name] }.each do |resident| %>
       <div class="resident-item">
         <p>Name: <%= link_to "#{resident.last_name}, #{resident.first_name}", admin_resident_path(resident) %></p>
-        <p>Email: <%= resident.email %></p>
+        <p>Email: <%= resident.email %></p><hr>
       </div>
     <% end %>
   </div>
