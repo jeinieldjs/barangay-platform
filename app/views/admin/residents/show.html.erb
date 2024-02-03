@@ -1,0 +1,17 @@
+<div class="page-wrapper">
+  <h1>Resident Details</h1>
+
+  <div class="resident-details">
+    <p><strong>Last Name:</strong> <%= @user.last_name %></p>
+    <p><strong>First Name:</strong> <%= @user.first_name %></p>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Complete Address:</strong> <%= @user.complete_address %></p>
+    <p><strong>Status:</strong> <%= @user.status %></p>
+
+    <div class="actions">
+      <%= link_to 'Back', admin_residents_path %>
+      <%= link_to 'Edit', edit_admin_resident_path(@user) %>
+      <%= link_to 'Destroy', admin_resident_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+</div>
