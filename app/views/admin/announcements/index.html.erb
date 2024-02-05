@@ -8,7 +8,7 @@
 <div class="residents-index-container">
 <% @announcements.order(created_at: :desc).each do |announcement| %>
   <div class="indiv-resident">
-    <h3><%= link_to announcement.title, admin_announcement_path(announcement) %></h3>
+    <h3><%= link_to announcement.title, admin_announcement_path(announcement), class: "name-link" %></h3>
     <p>Created at: <%= announcement.created_at.strftime("%d %b %Y %H:%M:%S") %></p>
     <p>Updated at: <%= announcement.updated_at.strftime("%d %b %Y %H:%M:%S") %></p>
     <p><%= truncate(announcement.content, length: 200) %></p>
