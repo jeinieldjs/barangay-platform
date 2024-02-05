@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         get 'pending', to: 'residents#pending'
       end
     end 
+    resources :announcements
   end
 
 end
