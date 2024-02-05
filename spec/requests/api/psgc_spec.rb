@@ -9,15 +9,17 @@ RSpec.describe "Api::Psgcs", type: :request do
   end
 
   describe "GET /fetch_cities_municipalities" do
+    province_code = '043400000'
     it "returns http success" do
-      get "/api/psgc/fetch_cities_municipalities"
+      get "/api/psgc/fetch_cities_municipalities/#{province_code}"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /fetch_barangays" do
+    city_or_municipality_code = '043405000'
     it "returns http success" do
-      get "/api/psgc/fetch_barangays"
+      get "/api/psgc/fetch_barangays/#{city_or_municipality_code}"
       expect(response).to have_http_status(:success)
     end
   end
