@@ -3,8 +3,25 @@ class Admin::ResidentsController < ApplicationController
     before_action :set_user, only: %i[show edit update destroy]
   
     def index
-      @users = User.where(role: :resident, barangay: current_user.barangay)
-      @pending_users = User.where(role: :resident, status: 'pending', barangay: current_user.barangay)
+      @users = User.where(
+              role: :resident,
+              status: 'approved',
+              barangay: current_user.barangay,
+              city_municipality: current_user.city_municipality,
+              province: current_user.province
+              )
+    end
+
+    def pending
+      @pending_users = User.where(
+        role: :resident,
+        status: 'pending',
+        barangay: current_user.barangay,
+        city_municipality: current_user.city_municipality,
+        province: current_user.province
+        )
+
+        render :pending
     end
   
     def new

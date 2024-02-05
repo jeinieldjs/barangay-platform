@@ -20,7 +20,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :residents
+    resources :residents do
+      collection do
+        get 'pending', to: 'residents#pending'
+      end
+    end 
   end
 
 end

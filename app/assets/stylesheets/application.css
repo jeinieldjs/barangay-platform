@@ -182,4 +182,75 @@ nav {
     color: #5C821A;
     text-transform: uppercase;
     text-align: center;
+    margin-bottom: 20px;
+}
+/*residents index*/
+.residents-index-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.residents-index-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.residents-index-actions {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.indiv-resident {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: solid 1px lightgrey;
+}
+.name-link {
+    color:#5C821A;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.name-link:hover {
+    color: #C6D166;
+    font-weight: 600;
+}
+/*edit status*/
+.status-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px;
+}
+.approve-button {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border: none;
+    background-color: darkgreen;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 10px; 
+    margin-right: 20px;
+}
+.reject-button {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border: none;
+    background-color: maroon;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.approve-button:hover {
+    background-color: rgba(0, 100, 0, 0.552);
+}
+.reject-button:hover {
+    background-color: rgba(128, 0, 0, 0.645);
 }

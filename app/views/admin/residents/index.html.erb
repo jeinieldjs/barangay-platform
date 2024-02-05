@@ -1,12 +1,16 @@
-<div class="page-wrapper">
+<div class="residents-index-wrapper">
   <h1 class="page-title"> Registered Residents of BRGY.<%= current_user.barangay.upcase %></h1>
-  <%= link_to 'Add Resident', new_admin_resident_path %>
 
-  <div class="residents-container">
+  <div class="residents-index-actions">
+    <%= link_to 'Add Resident', new_admin_resident_path, class: "action-link" %>
+    <%= link_to 'Pending Accounts', pending_admin_residents_path, class: "action-link" %>
+  </div>
+
+  <div class="residents-index-container">
     <% @users.sort_by { |resident| [resident.last_name, resident.first_name] }.each do |user| %>
-      <div class="resident-item">
-        <p>Name: <%= link_to "#{user.last_name}, #{user.first_name}", admin_resident_path(user) %></p>
-        <p>Email: <%= user.email %></p><hr>
+      <div class="indiv-resident">
+        <p><strong style="color: #5C821A;">Name:</strong> <%= link_to "#{user.last_name}, #{user.first_name}", admin_resident_path(user), class: "name-link" %></p>
+      <p><strong style="color: #5C821A;">Email:</strong> <%= user.email %></p>
       </div>
     <% end %>
   </div>
