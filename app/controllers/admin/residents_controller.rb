@@ -3,17 +3,17 @@ class Admin::ResidentsController < ApplicationController
     before_action :set_user, only: %i[show edit update destroy]
   
     def index
-      @residents = User.where(role: :resident, barangay: current_user.barangay)
+      @users = User.where(role: :resident, barangay: current_user.barangay)
       @pending_users = User.where(role: :resident, status: 'pending', barangay: current_user.barangay)
     end
   
     def new
-      @resident = User.new
+      @user = User.new
     end
   
     def create
-      @resident = User.new(resident_params)
-      if @resident.save
+      @user = User.new(resident_params)
+      if @user.save
         redirect_to admin_dashboard_path, notice: "Resident's account was successfully created."
       else
         render :new, status: :unprocessable_entity
@@ -27,6 +27,16 @@ class Admin::ResidentsController < ApplicationController
     end
   
     def update
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+      
+      if @user.update(resident_params)
+        redirect_to admin_residents_path, notice: "Resident's account was successfully updated."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
   
     def destroy

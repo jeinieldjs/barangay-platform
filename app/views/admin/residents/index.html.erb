@@ -1,13 +1,12 @@
-<div class = "page-wrapper">
-    <h1 class = "page-title"> Registered Residents of <%= current_user.barangay.upcase %>, <%= current_user.city_municipality.upcase %>,  <%= current_user.province.upcase %> <h1>
-    <%= link_to 'Add Resident', new_admin_resident_path %>
+<div class="page-wrapper">
+  <h1 class="page-title"> Registered Residents of <%= current_user.barangay.upcase %>, <%= current_user.city_municipality.upcase %>,  <%= current_user.province.upcase %> </h1>
+  <%= link_to 'Add Resident', new_admin_resident_path %>
 
-
-    <div class="residents-container">
-     <% @residents.sort_by { |resident| [resident.last_name, resident.first_name] }.each do |resident| %>
+  <div class="residents-container">
+    <% @users.sort_by { |resident| [resident.last_name, resident.first_name] }.each do |user| %>
       <div class="resident-item">
-        <p>Name: <%= link_to "#{resident.last_name}, #{resident.first_name}", admin_resident_path(resident) %></p>
-        <p>Email: <%= resident.email %></p><hr>
+        <p>Name: <%= link_to "#{user.last_name}, #{user.first_name}", admin_resident_path(user) %></p>
+        <p>Email: <%= user.email %></p><hr>
       </div>
     <% end %>
   </div>
