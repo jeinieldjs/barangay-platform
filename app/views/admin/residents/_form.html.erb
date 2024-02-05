@@ -1,4 +1,4 @@
-<%= form_with(model: [:admin, user], url: user.persisted? ? admin_resident_path(user) : admin_residents_path, local: true) do |form| %>
+<%= form_with(model: [:admin, user], url: user.persisted? ? admin_resident_path(user) : admin_residents_path, local: true, class: "resident-form") do |form| %>
   
   <% if user.errors.any? %>
   <div style="color: red">
@@ -13,34 +13,34 @@
   <% end %>
 
 
-  <div class="field">
+  <div class="new-resident-field">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class: "reg-input create-resident-field" %>
   </div>
 
-  <div class="field">
+  <div class="new-resident-field">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: "reg-input create-resident-field" %>
   </div>
 
-  <div class="reg-field">
+  <div class="new-resident-field">
     <%= form.label :email %><br />
-    <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "reg-input" %>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "reg-input create-resident-field" %>
   </div>
 
-  <div class="field">
+  <div class="new-resident-field">
     <%= form.label :complete_address %>
-    <%= form.text_area :complete_address %>
+    <%= form.text_field :complete_address, class: "reg-input create-resident-field" %>
   </div>
 
-  <div class="field">
+  <div class="new-resident-field">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: "reg-input create-resident-field" %>
   </div>
 
-  <div class="field">
+  <div class="new-resident-field">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "reg-input create-resident-field" %>
   </div>
 
   <%= form.hidden_field :role, value: 'resident' %>
@@ -48,8 +48,8 @@
   <%= form.hidden_field :province, value: current_user.province %>
   <%= form.hidden_field :city_municipality, value: current_user.city_municipality %>
   <%= form.hidden_field :barangay, value: current_user.barangay %>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "user-submit action-link" %>
   </div>
 <% end %>

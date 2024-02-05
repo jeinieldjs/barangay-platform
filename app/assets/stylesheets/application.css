@@ -111,7 +111,9 @@ nav {
 .show-resident-details {
     width: 30%;
     margin-top: 20px;
-    border: solid 1px black;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+    border:none;
     border-radius: 25px;
     padding: 30px;
 }
@@ -124,7 +126,7 @@ nav {
     justify-content: space-between;
     padding-top: 20px;
 }
-.delete-button {
+.delete-button, .user-submit {
     border: none;
     background-color: transparent;
 }
@@ -160,4 +162,24 @@ nav {
     color: maroon;
     background-color: rgba(211, 211, 211, 0.556);
     width: 100%;
+}
+/* admin/residents form */
+.resident-form {
+    border-radius: 25px;
+    padding: 30px;
+    width: 40%;
+    margin: auto;
+    color: #5C821A;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+}
+.new-resident-field {
+    margin-bottom: 10px;
+}
+.page-title {
+    color: #5C821A;
+    text-transform: uppercase;
+    text-align: center;
 }

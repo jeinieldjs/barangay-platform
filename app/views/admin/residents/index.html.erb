@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <h1 class="page-title"> Registered Residents of <%= current_user.barangay.upcase %>, <%= current_user.city_municipality.upcase %>,  <%= current_user.province.upcase %> </h1>
+  <h1 class="page-title"> Registered Residents of BRGY.<%= current_user.barangay.upcase %></h1>
   <%= link_to 'Add Resident', new_admin_resident_path %>
 
   <div class="residents-container">
