@@ -14,7 +14,7 @@ class Admin::ResidentsController < ApplicationController
     def create
       @user = User.new(resident_params)
       if @user.save
-        redirect_to admin_dashboard_path, notice: "Resident's account was successfully created."
+        redirect_to admin_residents_path, notice: "Resident's account was successfully created."
       else
         render :new, status: :unprocessable_entity
       end
@@ -31,7 +31,7 @@ class Admin::ResidentsController < ApplicationController
         params[:user].delete(:password)
         params[:user].delete(:password_confirmation)
       end
-      
+
       if @user.update(resident_params)
         redirect_to admin_residents_path, notice: "Resident's account was successfully updated."
       else
@@ -51,7 +51,7 @@ class Admin::ResidentsController < ApplicationController
     end
   
     def resident_params
-      params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :barangay, :province, :city_municipality, :role, :status)
+      params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :complete_address, :barangay, :province, :city_municipality, :role, :status)
     end
 end
   
