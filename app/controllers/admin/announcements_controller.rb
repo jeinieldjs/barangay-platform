@@ -10,17 +10,21 @@ class Admin::AnnouncementsController < ApplicationController
     end
 
     def new
-        @announcement.new
+        @announcement = Announcement.new
     end
 
     def create
         @announcement = Announcement.new(announcement_params)
+        @announcement.user = current_user
 
         if @announcement.save
             redirect_to admin_announcements_path, notice: 'Announcement was successfully published.'
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
+    end
+
+    def edit
     end
 
     def update
@@ -43,7 +47,7 @@ class Admin::AnnouncementsController < ApplicationController
     end
 
     def announcement_params
-        params.require.(:announcement).permit(:title, :content, :user_id)
+        params.require(:announcement).permit(:title, :content)
     end
 
 end
