@@ -100,4 +100,38 @@ nav {
 .admin-dash-wrapper {
     padding: 20px;
 }
-    
+/*show resident styles*/
+.show-resident-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.show-resident-details {
+    width: 30%;
+    margin-top: 20px;
+    border: solid 1px black;
+    border-radius: 25px;
+    padding: 30px;
+}
+.show-resident-actions {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.action-link {
+    text-decoration: none;
+    color: #5C821A;
+    padding: 5px;
+    font-weight: 700;
+}
+.action-link:hover {
+    color: white;
+    background-color: #5C821A;
+    border-radius: 10px;
+}
