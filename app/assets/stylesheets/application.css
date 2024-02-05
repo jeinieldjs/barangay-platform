@@ -140,3 +140,24 @@ nav {
     background-color: #5C821A;
     border-radius: 10px;
 }
+/* flash, notice, alert */
+.flash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+
+.notice {
+    color: darkgreen;
+    background-color: rgba(211, 211, 211, 0.556);
+    width: 100%;
+}
+.alert {
+    color: maroon;
+    background-color: rgba(211, 211, 211, 0.556);
+    width: 100%;
+}
