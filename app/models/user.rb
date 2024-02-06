@@ -9,4 +9,6 @@ class User < ApplicationRecord
   enum status: { pending: 'pending', approved: 'approved', rejected: 'rejected' }
 
   has_many :announcements
+  has_many :posts
+
 end

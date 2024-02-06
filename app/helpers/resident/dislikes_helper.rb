@@ -1,0 +1,2 @@
+module Resident::DislikesHelper
+end
