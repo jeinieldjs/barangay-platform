@@ -10,7 +10,7 @@ class Resident::ComplaintsController < ApplicationController
   end
 
   def create
-    @complaint = current_uer.complaints.build(complaint_params)
+    @complaint = current_user.complaints.build(complaint_params)
     if @complaint.save
       redirect_to resident_complaints_path, notice: 'Complaint was reported to barangay admin.'
     else
@@ -22,7 +22,7 @@ class Resident::ComplaintsController < ApplicationController
   private
 
   def complaint_params
-    params.require(:complaint).permit(:subject, :content, :status)
+    params.require(:complaint).permit(:subject, :description, :status)
   end
 
 end

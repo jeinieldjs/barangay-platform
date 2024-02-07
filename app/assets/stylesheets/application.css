@@ -65,7 +65,7 @@ nav {
     border: 1px solid #5C821A;
     width: 30%; 
 }
-.log-form, .reg-form, .announcement-form {
+.log-form, .reg-form, .announcement-form, .complaint-form {
     width: 70%;
     margin-top: 40px;
     margin-bottom:40px;
@@ -74,15 +74,15 @@ nav {
     text-transform: uppercase;
     text-align: center;
 }
-.log-field, .reg-field {
+.log-field, .reg-field, .complaint-field {
     margin-top: 15px;
 }
-.log-input, .reg-input, .announcement-input {
+.log-input, .reg-input, .announcement-input, .complaint-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
-.log-submit, .reg-submit {
+.log-submit, .reg-submit, .complaint-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -91,7 +91,7 @@ nav {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover {
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
@@ -367,4 +367,12 @@ nav {
     display: flex; 
     align-items: center;
     justify-content: center;
+}
+.new-complaint-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
 }
