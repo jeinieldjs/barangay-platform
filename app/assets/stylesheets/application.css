@@ -344,3 +344,26 @@ nav {
     font-size: 0.7rem;
     font-style: italic;
 }
+/*resident dashboard home*/
+.resident-dash-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-container {
+    padding: 10px;
+}
+.announcement-link-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+.resident-show-announcement-actions {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}

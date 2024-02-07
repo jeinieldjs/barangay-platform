@@ -1,30 +1,31 @@
 <% if current_user.approved? %>
-  <h1 class="page-title"> Resident's Dashboard </h1>
+  <div class="resident-dash-wrapper">
+    <h1 class="page-title"> Welcome, <%= current_user.first_name %> <%= current_user.last_name %>!</h1>
+    <div class="dash-container">
+    <h2>Latest announcements</h2><hr>
 
-  <p>Welcome <%= current_user.first_name %></p>
-
-  <div class= "latest-announcements">
-    <% if @announcements.any? %>
-  <div class="latest-announcements">
-    <h2>Latest Announcements From Your Barangay</h2>
-    <% @announcements.each do |announcement| %>
-      <div class="announcement">
-        <h3><%= announcement.title %></h3>
-        <p><small>Posted on: <%= announcement.created_at.strftime("%d %b %Y, %H:%M:%S") %></small></p>
-        <p><%= announcement.content %></p>
-        
-      </div>
-    <% end %>
+    <div class="residents-index-container">
+    
+      <% if @announcements.any? %>
+        <% @announcements.each do |announcement| %>
+          <div class="indiv-resident">
+            <%= link_to announcement.title, resident_announcement_path(announcement), class: "name-link" %>
+            <p><small>Posted at: <%= announcement.created_at.strftime("%d %b %Y, %H:%M:%S") %></small></p>
+            <p><%= truncate(announcement.content, length: 200) %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No announcements found.</p>
+      <% end %>
+    </div>
+    <div class="announcement-link-container">
+    <%= link_to "View All Announcements", resident_announcements_path, class: "action-link" %>
+    </div>
   </div>
-<% else %>
-  <p>No announcements found.</p>
-<% end %>
-
   </div>
-
 <% else %>
   <div class="pending-dash">
-    <p>Hi, <strong><%= current_user.first_name %></strong>! Your resgistration status is currently <strong><%= current_user.status.upcase %></strong>. Please wait for an email confirmation to be sent to <strong><%= current_user.email %></strong>.</p><br>
+    <p>Hi, <strong><%= current_user.first_name %></strong>! Your registration status is currently <strong><%= current_user.status.upcase %></strong>. Please wait for an email confirmation to be sent to <strong><%= current_user.email %></strong>.</p><br>
     <p>Thank you for your patience!</p>
   </div>
 <% end %>

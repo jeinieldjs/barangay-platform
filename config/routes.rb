@@ -38,7 +38,9 @@ Rails.application.routes.draw do
       collection do
         get 'my_posts', to: 'posts#my_posts'
       end
-
     end
+
+    resources :announcements, only: [:index, :show]
+    
   end
 end
