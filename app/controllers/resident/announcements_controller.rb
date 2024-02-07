@@ -1,6 +1,6 @@
 class Resident::AnnouncementsController < ApplicationController
     def index
-        @announcements = Announcement.joins(:user)
+      @announcements = Announcement.joins(:user)
                               .where(users: { role: 'admin', 
                                              barangay: current_user.barangay, 
                                              city_municipality: current_user.city_municipality,
