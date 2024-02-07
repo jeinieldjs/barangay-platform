@@ -34,6 +34,11 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       post :like, to: 'likes#create'
       delete :dislike, to: 'likes#destroy'
+
+      collection do
+        get 'my_posts', to: 'posts#my_posts'
+      end
+
     end
   end
 end

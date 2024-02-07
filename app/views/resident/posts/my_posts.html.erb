@@ -1,13 +1,13 @@
 <div class="post-index-wrapper">
-  <h1 class="page-ttile">Posts from Barangay <%= current_user.barangay %></h1>
+  <h1 class="page-ttile">Your Posts</h1>
   
   <div class="post-index-actions">
     <%= link_to "Create New Post", new_resident_post_path, class: "action-link" %>
-    <%= link_to "View My Post", my_posts_resident_posts_path, class: "action-link" %>
+    <%= link_to "Back to All Posts", resident_posts_path, class: "action-link" %>
   </div>
 
   <div class="posts-index-container">
-  <% @posts.reverse_each do |post| %>
+  <% @user_posts.reverse_each do |post| %>
     <div class="indiv-post">
       <p>
         <strong>

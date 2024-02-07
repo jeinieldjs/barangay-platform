@@ -10,6 +10,12 @@ class Resident::PostsController < ApplicationController
 
     @posts = Post.joins(:user)
                      .where(users: { status: 'approved', province: current_user_location[:province], city_municipality: current_user_location[:city_municipality], barangay: current_user_location[:barangay] })
+
+  
+  end
+
+  def my_posts
+    @user_posts = current_user.posts 
   end
 
   def new
