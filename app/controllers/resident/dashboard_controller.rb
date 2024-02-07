@@ -5,6 +5,15 @@ class Resident::DashboardController < ApplicationController
     def index
       @posts = Post.all
       @post = Post.new
+
+      @announcements = Announcement.joins(:user)
+                              .where(users: { role: 'admin', 
+                                             barangay: current_user.barangay, 
+                                             city_municipality: current_user.city_municipality,
+                                             province: current_user.province })
+                              .order(created_at: :desc)
+                              .limit(5)
+
     end
   
     def new

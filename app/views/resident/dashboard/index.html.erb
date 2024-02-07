@@ -1,7 +1,26 @@
 <% if current_user.approved? %>
-  <h1> Resident's Dashboard </h1>
+  <h1 class="page-title"> Resident's Dashboard </h1>
 
   <p>Welcome <%= current_user.first_name %></p>
+
+  <div class= "latest-announcements">
+    <% if @announcements.any? %>
+  <div class="latest-announcements">
+    <h2>Latest Announcements From Your Barangay</h2>
+    <% @announcements.each do |announcement| %>
+      <div class="announcement">
+        <h3><%= announcement.title %></h3>
+        <p><small>Posted on: <%= announcement.created_at.strftime("%d %b %Y, %H:%M:%S") %></small></p>
+        <p><%= announcement.content %></p>
+        
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No announcements found.</p>
+<% end %>
+
+  </div>
 
 <% else %>
   <div class="pending-dash">
