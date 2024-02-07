@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   namespace :resident do
     resources :dashboard, only: [:index]
-    resources :posts, only: [:new, :create, :show] do
+    resources :posts, only: [:index, :new, :create, :show] do
       resources :comments, only: [:create, :destroy]
       post :like, to: 'likes#create'
       delete :dislike, to: 'likes#destroy'
