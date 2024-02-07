@@ -10,5 +10,6 @@ class User < ApplicationRecord
 
   has_many :announcements
   has_many :posts
+  has_many :complaints
 
 end
