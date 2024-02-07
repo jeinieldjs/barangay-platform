@@ -5,8 +5,10 @@
 
     <div>
         <ul class='nav-links-container'>
-             <% if user_signed_in? %>
-                <% if current_user.admin? %>
+            <% if user_signed_in? %>
+                <% if current_user.pending? %>
+                    <li class='nav-links'><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+                <% elsif current_user.admin? %>
                     <li class='nav-links'><%= link_to "Home", admin_dashboard_index_path %></li>
                     <li class='nav-links'><%= link_to "Residents", admin_residents_path %></li>
                     <li class='nav-links'><%= link_to "Complaints", '' %></li>

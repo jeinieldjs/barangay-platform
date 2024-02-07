@@ -1,31 +1,38 @@
-<h1> Resident's Dashboard </h1>
+<% if current_user.approved? %>
+  <h1> Resident's Dashboard </h1>
 
-<p>Welcome <%= current_user.first_name %></p>
+  <p>Welcome <%= current_user.first_name %></p>
 
-<h2>New Post</h2>
-<%= link_to "Create New Post", new_resident_post_path %>
+  <h2>New Post</h2>
+  <%= link_to "Create New Post", new_resident_post_path %>
 
-<% @posts.each do |post| %>
-  <div class="post">
-    <p>
-      <strong>
-      <% if post.anonymous? %>
-      <span>Anonymous:</span>
-    <% else %>
-      <span><%= post.user.first_name %>:</span>
-    <% end %>
-      </strong> - <%= post.created_at.strftime("%B %d, %Y") %>
-    </p>
-    <h3><%= post.title %></h3>
-    <p><%= post.content %></p>
-    
-    <%= link_to "Like", resident_post_like_path(post), method: :post, class: "like-btn" %>
-    
-    <%= link_to "Dislike", resident_post_dislike_path(post), method: :delete, class: "dislike-btn" %>
-    
-    <%= form_with(model: [post, Comment.new], url: resident_post_comments_path(post), local: true) do |form| %>
-      <%= form.text_area :content, placeholder: "Add a comment..." %>
-      <%= form.submit "Comment" %>
-    <% end %>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <p>
+        <strong>
+        <% if post.anonymous? %>
+          <span>Anonymous:</span>
+        <% else %>
+          <span><%= post.user.first_name %>:</span>
+        <% end %>
+        </strong> - <%= post.created_at.strftime("%B %d, %Y") %>
+      </p>
+      <h3><%= post.title %></h3>
+      <p><%= post.content %></p>
+
+      <%= link_to "Like", resident_post_like_path(post), method: :post, class: "like-btn" %>
+
+      <%= link_to "Dislike", resident_post_dislike_path(post), method: :delete, class: "dislike-btn" %>
+
+      <%= form_with(model: [post, Comment.new], url: resident_post_comments_path(post), local: true) do |form| %>
+        <%= form.text_area :content, placeholder: "Add a comment..." %>
+        <%= form.submit "Comment" %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="pending-dash">
+    <p>Hi, <strong><%= current_user.first_name %></strong>! Your resgistration status is currently <strong><%= current_user.status.upcase %></strong>. Please wait for an email confirmation to be sent to <strong><%= current_user.email %></strong>.</p><br>
+    <p>Thank you for your patience!</p>
   </div>
 <% end %>
