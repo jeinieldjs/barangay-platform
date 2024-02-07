@@ -8,7 +8,7 @@ class Resident::PostsController < ApplicationController
       barangay: current_user.barangay
     }
 
-    @all_posts = Post.joins(:user)
+    @posts = Post.joins(:user)
                      .where(users: { status: 'approved', province: current_user_location[:province], city_municipality: current_user_location[:city_municipality], barangay: current_user_location[:barangay] })
   end
 
@@ -20,7 +20,7 @@ class Resident::PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to resident_dashboard_index_path, notice: 'Post created successfully.'
+      redirect_to resident_posts_path notice: 'Post created successfully.'
     else
       render :new
     end
