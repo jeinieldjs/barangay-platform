@@ -15,6 +15,7 @@ class Resident::ComplaintsController < ApplicationController
       redirect_to resident_complaints_path, notice: 'Complaint was reported to barangay admin.'
     else
       render :new, status: :unprocessable_entity
+    end
 
   end
 
