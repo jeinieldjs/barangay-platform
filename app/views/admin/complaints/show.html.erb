@@ -1,2 +1,24 @@
-<h1>Admin::Complaints#show</h1>
-<p>Find me in app/views/admin/complaints/show.html.erb</p>
+<div class="complaint-card-show">
+  <div class="complaint-top">
+    <h2 class="complaint-subject"><%= @complaint.subject %></h2>
+  </div>
+  <div class="complaint-details">
+    <p><strong>Filed By:</strong> <%= @complaint.user.email %></p>
+    <p><strong>Created At:</strong> <%= @complaint.created_at.strftime('%d %b %Y, %H:%M:%S') %></p>
+    <p><strong>Full Description:</strong> <%= @complaint.description %></p>
+  </div>
+
+  <div class="complaint-edit-status">
+    <%= form_with(model: @complaint, url: admin_complaint_path(@complaint), method: :patch) do |form| %>
+      <div class="field">
+        <%= form.label :status %>
+        <%= form.select :status, ['pending', 'resolved'], {},class: 'status-options' %>
+      </div>
+      <%= form.submit 'Update Status', class: 'status-submit status-button' %>
+    <% end %>
+  </div>
+
+  <div class="resident-show-announcement-actions">
+    <%= link_to 'Back', admin_complaints_path, class: "action-link" %>
+  </div>
+</div>

@@ -15,7 +15,7 @@ class Admin::ComplaintsController < ApplicationController
 
   def update
     if @complaint.update(complaint_params)
-      redirect_to admin_complaint_path(@complaint), notice: 'Complaint status was successfully updated.'
+      redirect_to admin_complaints_path, notice: 'Complaint status was successfully updated.'
     else
       render :edit
     end
