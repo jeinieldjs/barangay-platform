@@ -374,7 +374,7 @@ nav {
     align-items: center;
     justify-content: center;
 }
-.new-complaint-wrapper {
+.new-complaint-wrapper, .complaint-index-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -384,4 +384,80 @@ nav {
 }
 .complaint-description {
     height: 200px;
+}
+.complaint-link {
+    color: white;
+    background-color: #5C821A;
+    border: none;
+    border-radius: 10px;
+    padding: 5px; 
+    text-decoration: none; 
+}
+
+.complaint-link:hover {
+    color: #5C821A;
+    background-color: white;
+    border: solid 1px #5C821A;
+}
+
+.complaint-card-wrapper {
+    border-top: solid 1px lightgray;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.no-complaints {
+    margin-top: 40px;
+    color: lightslategray;
+    text-align: center;
+}
+.complaint-card {
+    width: 30%;
+    height: 200px;
+    margin: auto;
+    border: solid 1px #5C821A;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.complaint-top {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.status-badge.pending {
+    color: white;
+    background-color: maroon;
+    padding: 3px;
+    border-radius:5px;
+    font-size: 0.8rem; 
+}
+.status-badge.resolved {
+    color: white;
+    background-color: #5C821A;
+    padding: 3px;
+    border-radius:5px;
+    font-size: 0.8rem;
+}
+.complaint-details {
+    margin-top: 10px;
+}
+.complaint-card-show {
+    width: 40%;
+    margin: auto;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
 }

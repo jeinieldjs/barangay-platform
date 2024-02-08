@@ -5,6 +5,10 @@ class Resident::ComplaintsController < ApplicationController
     @complaints = current_user.complaints
   end
 
+  def show
+    @complaint = Complaint.find(params[:id])
+  end
+
   def new
     @complaint = Complaint.new
   end

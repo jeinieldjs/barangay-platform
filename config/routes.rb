@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     end
 
     resources :announcements, only: [:index, :show]
-    resources :complaints, only: [:index, :new, :create]
+    resources :complaints, only: [:index, :show, :new, :create]
     
   end
 end
