@@ -218,10 +218,16 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
 }
+.name-link:visited {
+    color: #6d7336; 
+    font-weight: 600;
+    
+}
 .name-link:hover {
     color: #C6D166;
     font-weight: 600;
 }
+
 /*edit status*/
 .status-button-container {
     display: flex;
@@ -375,4 +381,7 @@ nav {
     justify-content: center;
     width: 60%;
     margin: auto;
+}
+.complaint-description {
+    height: 200px;
 }

@@ -12,12 +12,12 @@
   <% end %>
   <div class="complaint-field">
     <%= form.label :subject %>
-    <%= form.text_field :subject, class: "complaint-input" %>
+    <%= form.text_field :subject, placeholder: "What is it about?", class: "complaint-input" %>
   </div>
 
   <div class="complaint-field">
     <%= form.label :description %>
-    <%= form.text_area :description, class: "complaint-input" %>
+    <%= form.text_area :description, placeholder: "Please provide a brief, yet detailed description of the event/concern.", class: "complaint-input complaint-description" %>
   </div>
 
   <%= form.hidden_field :status, value: "pending" %>
