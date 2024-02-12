@@ -1,3 +1,16 @@
-<h1>Admin::Dashboard#index</h1>
-<p>Find me in app/views/admin/dashboard/index.html.erb</p>
-<%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+<div class="admin-dash-wrapper">
+     <h1>Hello, <%= current_user.first_name.upcase %>!</h1>
+    <div class='dash-divider'>
+        <h1 class= 'divider-title'>Announcements</h1><hr>
+    </div>
+    <div class='dash-divider'>
+        <h1 class= 'divider-title'>Complaints</h1><hr>
+    </div>
+    <div class='dash-divider'>
+        <h1 class= 'divider-title'>Pending Registrations</h1><hr>
+    </div>
+    <div class='dash-divider'>
+        <h1 class= 'divider-title'>Registered Residents</h1><hr>
+    </div>
+</div>
+

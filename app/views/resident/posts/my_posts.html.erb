@@ -1,0 +1,42 @@
+<div class="post-index-wrapper">
+  <h1 class="page-ttile">Your Posts</h1>
+  
+  <div class="post-index-actions">
+    <%= link_to "Create New Post", new_resident_post_path, class: "action-link" %>
+    <%= link_to "Back to All Posts", resident_posts_path, class: "action-link" %>
+  </div>
+
+  <div class="posts-index-container">
+  <% @user_posts.reverse_each do |post| %>
+    <div class="indiv-post">
+      <p>
+        <strong>
+          <% if post.anonymous? %>
+            <span>Anonymous:</span>
+          <% else %>
+            <span><%= post.user.first_name %>:</span>
+          <% end %>
+        </strong><br>
+        <small class="posted-at-info">
+        <%= post.created_at.strftime("%d %b %Y, %H:%M:%S") %>
+        </small>
+      </p>
+      <h3><%= post.title %></h3>
+      <p><%= post.content %></p>
+
+      <div class="post-reactions-container">
+        <%= link_to "Like", resident_post_like_path(post), method: :post, class: "like-btn" %>
+        <%= link_to "Dislike", resident_post_dislike_path(post), method: :delete, class: "dislike-btn" %>
+      </div>
+
+      <div class="post-comments-container">
+        <%= form_with(model: [post, Comment.new], url: resident_post_comments_path(post), local: true, html: { class: "comment-form" }) do |form| %>
+            <%= form.text_area :content, placeholder: "Add a comment...", class: "comment-text-area"%><br>
+            <%= form.submit "Comment", class:"submit-comment" %>
+        <% end %>
+      </div>
+
+    </div>
+  <% end %>
+  </div>
+</div>

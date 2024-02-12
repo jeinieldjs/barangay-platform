@@ -1,0 +1,25 @@
+<div class="residents-index-wrapper">
+  <h1 class="page-title">Pending Residents of BRGY.<%= current_user.barangay.upcase %></h1>
+  <div class="residents-index-actions">
+    <%= link_to 'Back', admin_residents_path, class: "action-link" %>
+  </div>
+
+  <% if @pending_users.any? %>
+    <div class="residents-index-container">
+      <% @pending_users.each do |user| %>
+        <div class="indiv-resident">
+          <p><strong style="color: #5C821A;">Last Name:</strong> <%= user.last_name.titleize %></p>
+          <p><strong style="color: #5C821A;">First Name:</strong> <%= user.first_name.titleize %></p>
+          <p><strong style="color: #5C821A;">Email:</strong> <%= user.email %></p>
+          <p><strong style="color: #5C821A;">Complete Address:</strong> <%= user.complete_address.titleize %></p>
+          <p><strong style="color: #5C821A;">Status:</strong> <%= user.status.titleize %></p>
+
+          <%= render partial: 'edit_status', locals: { user: user } %>
+
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No pending residents at the moment.</p>
+  <% end %>
+</div>

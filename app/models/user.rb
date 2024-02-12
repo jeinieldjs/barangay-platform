@@ -7,4 +7,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :complete_address, :province, :city_municipality, :barangay, :role, :status, presence: true
   enum role: { admin: 'admin', resident: 'resident' }
   enum status: { pending: 'pending', approved: 'approved', rejected: 'rejected' }
+
+  has_many :announcements
+  has_many :posts
+  has_many :complaints
+
 end

@@ -13,3 +13,472 @@
  *= require_tree .
  *= require_self
  */
+ * {
+    font-family: 'Poppins';
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+ }
+/*styles for navbar*/
+nav {
+    padding: 10px;
+    background-color: #5C821A;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-between;
+}
+.nav-links-container { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.nav-links {
+    list-style: none;
+    margin-right: 10px; 
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.nav-links a:hover {
+   background-color:#FFFFFF ;
+   color: #5C821A;
+   border-radius: 5px;
+} 
+/*log forms*/
+
+.log-form-container, .reg-form-container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 100px;
+    border-radius: 15px;
+    border: 1px solid #5C821A;
+    width: 30%; 
+}
+.log-form, .reg-form, .announcement-form, .complaint-form {
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom:40px;
+}
+.log-form h2, .reg-form h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+.log-field, .reg-field, .complaint-field {
+    margin-top: 15px;
+}
+.log-input, .reg-input, .announcement-input, .complaint-input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+}
+.log-submit, .reg-submit, .complaint-submit, .status-submit {
+    width: 30%;
+    padding: 5px;
+    background-color:  #5C821A;
+    border:none;
+    color: #ffffff;
+    border-radius: 7px;
+    text-transform: uppercase;
+}
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover {
+    border: solid 2px #5C821A;
+    background-color: transparent;
+    color: #5C821A;
+}
+/*admin dashboard styles*/
+.admin-dash-wrapper {
+    padding: 20px;
+}
+/*show resident styles*/
+.show-resident-wrapper, .show-announcement-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.show-resident-details, .show-announcement-details {
+    width: 30%;
+    margin-top: 20px;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+    border:none;
+    border-radius: 25px;
+    padding: 30px;
+}
+.show-resident-actions, .show-announcement-actions {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.delete-button, .user-submit {
+    border: none;
+    background-color: transparent;
+}
+.action-link {
+    text-decoration: none;
+    color: #5C821A;
+    padding: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.action-link:hover {
+    color: white;
+    background-color: #5C821A;
+    border-radius: 10px;
+}
+/* flash, notice, alert */
+.flash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+
+.notice {
+    color: darkgreen;
+    background-color: rgba(211, 211, 211, 0.556);
+    width: 100%;
+}
+.alert {
+    color: maroon;
+    background-color: rgba(211, 211, 211, 0.556);
+    width: 100%;
+}
+/* admin/residents form */
+.resident-form, .announcement-form {
+    border-radius: 25px;
+    padding: 30px;
+    width: 40%;
+    margin: auto;
+    color: #5C821A;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+}
+.new-resident-field, .announcement-field {
+    margin-bottom: 10px;
+}
+.page-title {
+    color: #5C821A;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*residents index */
+.residents-index-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.residents-index-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.residents-index-actions {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.indiv-resident {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: solid 1px lightgrey;
+}
+.name-link {
+    color:#5C821A;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.name-link:visited {
+    color: #6d7336; 
+    font-weight: 600;
+    
+}
+.name-link:hover {
+    color: #C6D166;
+    font-weight: 600;
+}
+
+/*edit status*/
+.status-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 20px;
+}
+.approve-button {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border: none;
+    background-color: darkgreen;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 10px; 
+    margin-right: 20px;
+}
+.reject-button {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border: none;
+    background-color: maroon;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.approve-button:hover {
+    background-color: rgba(0, 100, 0, 0.552);
+}
+.reject-button:hover {
+    background-color: rgba(128, 0, 0, 0.645);
+}
+/*pending resident dashboard*/
+.pending-dash {
+    width: 30%;
+    margin:auto;
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 25px;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+}
+.pending-dash strong {
+    color: #5C821A;
+}
+/*posts styles*/
+.post-index-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.post-index-container{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.post-index-actions {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    border-bottom: solid 1px lightgrey;
+}
+.indiv-post {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: solid 1px lightgrey;
+}
+.post-reactions-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+.post-comments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+}
+.comment-form {
+    width: 100%;
+}
+.comment-text-area {
+    width: 90%;
+    padding: 5px;
+}
+
+.submit-comment {
+    border-radius: 5px;
+    background-color: #5C821A;
+    color: #FFFFFF;
+    border: solid 1px #5C821A;
+    padding: 5px;
+}
+.submit-comment:hover {
+    background-color: transparent;
+    color: #5C821A;
+    border: solid 1px #5C821A;
+}
+.like-btn:hover {
+    color: #5C821A;
+    text-decoration: none;
+    font-weight: 600;
+}
+.dislike-btn:hover {
+    color: maroon;
+    text-decoration: none;
+    font-weight: 600;
+}
+.posted-at-info {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+/*resident dashboard home*/
+.resident-dash-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-container {
+    padding: 10px;
+    width: 100%; /*check if consistent*/
+}
+.announcement-link-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+.resident-show-announcement-actions {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.new-complaint-wrapper, .complaint-index-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+}
+.complaint-description {
+    height: 200px;
+}
+.complaint-link {
+    color: white;
+    background-color: #5C821A;
+    border: none;
+    border-radius: 10px;
+    padding: 5px; 
+    text-decoration: none; 
+}
+
+.complaint-link:hover {
+    color: #5C821A;
+    background-color: white;
+    border: solid 1px #5C821A;
+}
+
+.complaint-card-wrapper {
+    border-top: solid 1px lightgray;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.no-complaints {
+    margin-top: 40px;
+    color: lightslategray;
+    text-align: center;
+}
+.complaint-card {
+    width: 30%;
+    height: 200px;
+    margin: auto;
+    border: solid 1px #5C821A;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.complaint-top {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.status-badge.pending {
+    color: white;
+    background-color: maroon;
+    padding: 3px;
+    border-radius:5px;
+    font-size: 0.8rem; 
+}
+.status-badge.resolved {
+    color: white;
+    background-color: #5C821A;
+    padding: 3px;
+    border-radius:5px;
+    font-size: 0.8rem;
+}
+.complaint-details {
+    margin-top: 10px;
+}
+.complaint-card-show {
+    width: 40%;
+    margin: auto;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.status-button {
+    margin-top: 10px;
+}
+.status-options {
+    text-transform: uppercase;
+    padding: 5px;
+}
+.status-labels {
+    padding: 20px;
+}
+.pending-complaints, .resolved-complaints {
+    border-top: solid 1px lightgray;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
