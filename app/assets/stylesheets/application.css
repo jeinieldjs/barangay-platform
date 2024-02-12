@@ -361,6 +361,7 @@ nav {
 
 .dash-container {
     padding: 10px;
+    width: 100%; /*check if consistent*/
 }
 .announcement-link-container {
     display: flex;
