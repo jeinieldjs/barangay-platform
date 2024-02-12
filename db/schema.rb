@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_02_07_125730) do
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_02_07_111721) do
->>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_111721) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "content"
+    t.text "content", null: false
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -38,21 +34,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_111721) do
   end
 
   create_table "complaints", force: :cascade do |t|
-<<<<<<< HEAD
-    t.string "title"
-    t.text "content"
-=======
     t.string "subject"
     t.text "description"
     t.string "status"
->>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_complaints_on_user_id"
   end
 
-<<<<<<< HEAD
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
@@ -61,11 +51,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_111721) do
     t.string "color"
     t.boolean "like_state"
     t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-=======
->>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -100,10 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_111721) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "complaints", "users"
-<<<<<<< HEAD
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-=======
->>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2
   add_foreign_key "posts", "users"
 end

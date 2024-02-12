@@ -9,13 +9,8 @@ class User < ApplicationRecord
   enum status: { pending: 'pending', approved: 'approved', rejected: 'rejected' }
 
   has_many :announcements
-<<<<<<< HEAD
   has_many :posts, dependent: :destroy
   has_many :comments
   has_many :likes, dependent: :destroy
-=======
-  has_many :posts
-  has_many :complaints
 
->>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2
 end
