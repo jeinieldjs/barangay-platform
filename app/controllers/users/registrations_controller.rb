@@ -1,12 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-    before_action :set_provinces, only: [:new, :create]
+  before_action :set_locations, only: [:new, :create]
 
-    private
+  private
 
-    def set_provinces
-        response = PSGC::Client.fetch_provinces
-        @provinces = response[:data].sort_by { |province| province["name"] }
-       
-    end
-
+  def set_locations
+    response = PSGC::Client.fetch_provinces
+    @provinces = response[:data].sort_by { |province| province["name"] }
+  end
 end

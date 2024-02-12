@@ -3,7 +3,12 @@ class Admin::AnnouncementsController < ApplicationController
     before_action :set_announcement, only: [:show, :edit, :update, :destroy]
 
     def index
-        @announcements = Announcement.all
+        @announcements = Announcement.joins(:user)
+        .where(users: { role: 'admin', 
+                       barangay: current_user.barangay, 
+                       city_municipality: current_user.city_municipality,
+                       province: current_user.province })
+        .order(created_at: :desc)
     end
 
     def show
