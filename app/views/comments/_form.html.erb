@@ -1,0 +1,21 @@
+
+        <div id="commentForm-<%= post.id %>" style="display: none;">
+          <form action="<%= resident_post_comments_path(post) %>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <textarea name="comment[content]" rows="5" cols="20"></textarea>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+
+        <script>
+
+  let commentBtns = document.querySelectorAll(".comment-btn");
+  commentBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      let postId = this.getAttribute("data-post-id");
+      let commentForm = document.getElementById("commentForm-" + postId);
+      
+      commentForm.style.display = (commentForm.style.display === "none") ? "block" : "none";
+    });
+  });
+</script>

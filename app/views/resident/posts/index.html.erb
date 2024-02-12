@@ -1,3 +1,12 @@
+<style>
+  .like-btn.clicked {
+    background-color: blue;
+    color: white;
+  }
+</style>
+
+<%= javascript_include_tag 'likes' %>
+
 <div class="post-index-wrapper">
   <h1 class="page-ttile">Posts from Barangay <%= current_user.barangay %></h1>
   
@@ -7,36 +16,72 @@
   </div>
 
   <div class="posts-index-container">
-  <% @posts.reverse_each do |post| %>
-    <div class="indiv-post">
-      <p>
-        <strong>
-          <% if post.anonymous? %>
-            <span>Anonymous:</span>
-          <% else %>
-            <span><%= post.user.first_name %>:</span>
-          <% end %>
-        </strong><br>
-        <small class="posted-at-info">
-        <%= post.created_at.strftime("%d %b %Y, %H:%M:%S") %>
-        </small>
-      </p>
-      <h3><%= post.title %></h3>
-      <p><%= post.content %></p>
+    <% @posts.reverse_each do |post| %>
+      <div class="indiv-post">
+        <p>
+          <strong>
+            <% if post.anonymous? %>
+              <span>Anonymous:</span>
+            <% else %>
+              <span><%= post.user.first_name %>:</span>
+            <% end %>
+          </strong><br>
+          <small class="posted-at-info">
+            <%= post.created_at.strftime("%d %b %Y, %H:%M:%S") %>
+          </small>
+        </p>
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
 
-      <div class="post-reactions-container">
-        <%= link_to "Like", resident_post_like_path(post), method: :post, class: "like-btn" %>
-        <%= link_to "Dislike", resident_post_dislike_path(post), method: :delete, class: "dislike-btn" %>
-      </div>
+        <% like = current_user.likes.find_by(post_id: post.id) %>
+        <% if like.nil? %>
+          <form class="like-form" action="<%= resident_post_likes_path(post) %>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="like[post_id]" value="<%= post.id %>">
+            <button type="submit">Like</button>
+          </form>
+        <% else %>
+          <form class="unlike-form" action="<%= resident_post_like_path(post, like) %>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Unlike</button>
+          </form>
+        <% end %>
 
-      <div class="post-comments-container">
-        <%= form_with(model: [post, Comment.new], url: resident_post_comments_path(post), local: true, html: { class: "comment-form" }) do |form| %>
-            <%= form.text_area :content, placeholder: "Add a comment...", class: "comment-text-area"%><br>
-            <%= form.submit "Comment", class:"submit-comment" %>
+        <!-- Button modal -->
+        <button type="button" class="btn btn-primary comment-btn" data-post-id="<%= post.id %>" data-post-title="<%= post.title %>">
+          Add Comment
+        </button>
+
+
+        <div id="commentForm-<%= post.id %>" style="display: none;">
+          <form action="<%= resident_post_comments_path(post) %>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <textarea name="comment[content]" rows="5" cols="20"></textarea>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <!-- P TAG para idisplay ung comment -->
+        <h6>Comments:</h6>
+        <% post.comments.each do |comment| %>
+          <%= render comment %>
         <% end %>
       </div>
-
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  
+    let commentBtns = document.querySelectorAll(".comment-btn");
+    commentBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        let postId = this.getAttribute("data-post-id");
+        let commentForm = document.getElementById("commentForm-" + postId);
+      
+        commentForm.style.display = (commentForm.style.display === "none") ? "block" : "none";
+      });
+    });
+  });
+</script>

@@ -1,0 +1,27 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.like-form, .unlike-form').submit(function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      var form = $(this);
+      var url = form.attr('action');
+      var method = form.attr('method');
+      var data = form.serialize(); // Serialize form data
+      
+      $.ajax({
+        url: url,
+        method: method,
+        data: data,
+        dataType: 'json', // Expect JSON response
+        success: function(response) {
+          // Update UI based on response if needed
+        },
+        error: function(xhr, status, error) {
+          // Handle error response
+        }
+      });
+    });
+  });
+</script>
