@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :complaints, only: [:new, :create, :index]
-  get 'admin/complaints', to: 'complaints#index', as: 'admin_complaints'
-
   devise_scope :user do
     get '/users/sign_out', to: 'devise/sessions#destroy'
     root to: "devise/sessions#new"
@@ -27,6 +24,7 @@ Rails.application.routes.draw do
     end 
     
     resources :announcements
+    resources :complaints, only: [:index, :edit, :update, :show]
   end
 
 
@@ -40,6 +38,7 @@ Rails.application.routes.draw do
       end
     end
     resources :announcements, only: [:index, :show]
+    resources :complaints, only: [:index, :show, :new, :create]
     
   end
 end

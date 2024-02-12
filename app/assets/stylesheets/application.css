@@ -65,7 +65,7 @@ nav {
     border: 1px solid #5C821A;
     width: 30%; 
 }
-.log-form, .reg-form, .announcement-form {
+.log-form, .reg-form, .announcement-form, .complaint-form {
     width: 70%;
     margin-top: 40px;
     margin-bottom:40px;
@@ -74,15 +74,15 @@ nav {
     text-transform: uppercase;
     text-align: center;
 }
-.log-field, .reg-field {
+.log-field, .reg-field, .complaint-field {
     margin-top: 15px;
 }
-.log-input, .reg-input, .announcement-input {
+.log-input, .reg-input, .announcement-input, .complaint-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
-.log-submit, .reg-submit {
+.log-submit, .reg-submit, .complaint-submit, .status-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -91,7 +91,7 @@ nav {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover {
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
@@ -218,10 +218,16 @@ nav {
     text-decoration: none;
     text-transform: uppercase;
 }
+.name-link:visited {
+    color: #6d7336; 
+    font-weight: 600;
+    
+}
 .name-link:hover {
     color: #C6D166;
     font-weight: 600;
 }
+
 /*edit status*/
 .status-button-container {
     display: flex;
@@ -367,4 +373,111 @@ nav {
     display: flex; 
     align-items: center;
     justify-content: center;
+}
+.new-complaint-wrapper, .complaint-index-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+}
+.complaint-description {
+    height: 200px;
+}
+.complaint-link {
+    color: white;
+    background-color: #5C821A;
+    border: none;
+    border-radius: 10px;
+    padding: 5px; 
+    text-decoration: none; 
+}
+
+.complaint-link:hover {
+    color: #5C821A;
+    background-color: white;
+    border: solid 1px #5C821A;
+}
+
+.complaint-card-wrapper {
+    border-top: solid 1px lightgray;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.no-complaints {
+    margin-top: 40px;
+    color: lightslategray;
+    text-align: center;
+}
+.complaint-card {
+    width: 30%;
+    height: 200px;
+    margin: auto;
+    border: solid 1px #5C821A;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.complaint-top {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.status-badge.pending {
+    color: white;
+    background-color: maroon;
+    padding: 3px;
+    border-radius:5px;
+    font-size: 0.8rem; 
+}
+.status-badge.resolved {
+    color: white;
+    background-color: #5C821A;
+    padding: 3px;
+    border-radius:5px;
+    font-size: 0.8rem;
+}
+.complaint-details {
+    margin-top: 10px;
+}
+.complaint-card-show {
+    width: 40%;
+    margin: auto;
+    background-color: rgba(245, 245, 245, 0.597);
+    box-shadow: 5px 10px #5C821A;
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.status-button {
+    margin-top: 10px;
+}
+.status-options {
+    text-transform: uppercase;
+    padding: 5px;
+}
+.status-labels {
+    padding: 20px;
+}
+.pending-complaints, .resolved-complaints {
+    border-top: solid 1px lightgray;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
