@@ -1,5 +1,6 @@
 <div class="residents-index-wrapper">
   <h1 class="page-title">Pending Residents of BRGY.<%= current_user.barangay.upcase %></h1>
+  <p class="page-description">Please verify from current records if applicant truly resides in BRGY. <%= current_user.barangay.upcase %>. If not, reject account registration.</p>
   <div class="residents-index-actions">
     <%= link_to 'Back', admin_residents_path, class: "action-link" %>
   </div>
