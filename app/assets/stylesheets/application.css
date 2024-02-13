@@ -104,12 +104,13 @@ nav {
 
 }
 .dash-announcement {
-    width: 60%;
+    width: 85%;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 50px;
     border-top:none;
     border: solid black 1px;
     border-radius: 15px;
+    margin-bottom: 50px;
  
 }
 .dash-announcement-top {
@@ -512,6 +513,7 @@ nav {
 .complaint-card {
     width: 30%;
     height: 200px;
+    overflow-y: auto;
     margin: auto;
     border: solid 1px #5C821A;
     padding: 10px;
@@ -573,6 +575,7 @@ nav {
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 /*search bar*/
 .search-line {
@@ -610,4 +613,10 @@ nav {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
+}
+.index-link {
+    text-decoration: underline;
+}
+.wrapper-new-edit {
+    margin-bottom: 50px;
 }

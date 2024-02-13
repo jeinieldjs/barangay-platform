@@ -30,7 +30,7 @@
             <% @complaints.each do |complaint| %>
               <div class="complaint-card">
                 <div class="complaint-top">
-                  <h3 class="complaint-subject"><%= link_to complaint.subject, admin_complaint_path(complaint), class: 'name-link' %></h3>
+                  <h3 class="complaint-subject"><%= link_to complaint.subject, admin_complaint_path(complaint), class: 'name-link index-link' %></h3>
                   <p class="status-badge <%= complaint.status %>"><%= complaint.status %></p>
                 </div>
                 <p><strong>Filed By:</strong> <%= complaint.user.email %></p>
