@@ -10,8 +10,8 @@ class User < ApplicationRecord
   enum role: { admin: 'admin', resident: 'resident' }
   enum status: { pending: 'pending', approved: 'approved', rejected: 'rejected' }
 
-  has_many :announcements
-  has_many :posts
-  has_many :complaints
+  has_many :announcements, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :complaints, dependent: :destroy
 
 end
