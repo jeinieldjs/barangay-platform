@@ -68,7 +68,7 @@ class Admin::ResidentsController < ApplicationController
     end
   
     def resident_params
-      params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :complete_address, :barangay, :province, :city_municipality, :role, :status)
+      params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :complete_address, :barangay, :province, :city_municipality, :role, :status, :contact_number)
     end
 end
   
