@@ -5,12 +5,13 @@
   </div>
 
   <% if @pending_users.any? %>
-    <div class="residents-index-container">
+    <div class="pending-index-container">
       <% @pending_users.each do |user| %>
         <div class="indiv-resident">
           <p><strong style="color: #5C821A;">Last Name:</strong> <%= user.last_name.titleize %></p>
           <p><strong style="color: #5C821A;">First Name:</strong> <%= user.first_name.titleize %></p>
           <p><strong style="color: #5C821A;">Email:</strong> <%= user.email %></p>
+          <p><strong style="color: #5C821A;">Contact Number:</strong> <%= user.contact_number %></p>
           <p><strong style="color: #5C821A;">Complete Address:</strong> <%= user.complete_address.titleize %></p>
           <p><strong style="color: #5C821A;">Status:</strong> <%= user.status.titleize %></p>
 

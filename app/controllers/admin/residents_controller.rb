@@ -10,6 +10,9 @@ class Admin::ResidentsController < ApplicationController
               city_municipality: current_user.city_municipality,
               province: current_user.province
               )
+      if params[:last_name_query].present?
+        @users = @users.where("LOWER(last_name) LIKE ?", "%#{params[:last_name_query].downcase}%")
+      end
     end
 
     def pending

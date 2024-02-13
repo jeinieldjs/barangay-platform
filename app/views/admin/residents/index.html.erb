@@ -6,6 +6,13 @@
     <%= link_to 'Pending Accounts', pending_admin_residents_path, class: "action-link" %>
   </div>
 
+  <div class="search-line">
+    <%= form_tag(admin_residents_path, method: :get, class: "search-form") do %>
+      <%= text_field_tag :last_name_query, params[:last_name_query], placeholder: "Search by last name", class: "search-input" %>
+      <%= submit_tag "Search", class:"search-submit" %>
+    <% end %>
+  </div>
+
   <div class="residents-index-container">
     <% @users.sort_by { |resident| [resident.last_name, resident.first_name] }.each do |user| %>
       <div class="indiv-resident">
