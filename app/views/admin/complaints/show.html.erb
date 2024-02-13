@@ -3,7 +3,7 @@
     <h2 class="complaint-subject"><%= @complaint.subject %></h2>
   </div>
   <div class="complaint-details">
-    <p><strong>Filed By:</strong> <%= @complaint.user.email %></p>
+    <p><strong>Filed By:</strong> <%= link_to @complaint.user.email, admin_resident_path(@complaint.user),class: "complainant-link" %></p>
     <p><strong>Created At:</strong> <%= @complaint.created_at.strftime('%d %b %Y, %H:%M:%S') %></p>
     <p><strong>Full Description:</strong> <%= @complaint.description %></p>
   </div>

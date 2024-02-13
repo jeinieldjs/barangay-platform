@@ -1,6 +1,18 @@
 class Admin::DashboardController < ApplicationController
 
   def index
+    @announcement = Announcement.joins(:user)
+    .where(users: { role: 'admin', 
+                   barangay: current_user.barangay, 
+                   city_municipality: current_user.city_municipality,
+                   province: current_user.province })
+    .last
+
+    @complaints = Complaint.joins(:user).where(users: { 
+    barangay: current_user.barangay,
+    city_municipality: current_user.city_municipality,
+    province: current_user.province
+  }).where(status: 'pending').order(created_at: :desc).limit(3)
   end
 
   def create_admin_account

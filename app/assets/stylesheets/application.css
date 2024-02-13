@@ -100,6 +100,55 @@ nav {
 /*admin dashboard styles*/
 .admin-dash-wrapper {
     padding: 20px;
+
+}
+.dash-announcement {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    border-top:none;
+    border: solid black 1px;
+ 
+}
+.dash-announcement-top {
+    width: 100%;
+    background-color: #5C821A;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+.dash-announcement-body {
+    width: 80%;
+    margin: auto;  
+}
+.dash-announcement-date {
+    text-align: center;
+    padding: 10px;
+    color: lightslategray;
+}
+.dash-announcement-content {
+    text-align: justify;
+    padding-bottom: 20px;;
+}
+.dash-complaint {
+    width: 100%;
+    border: solid 1px blue;
+}
+.dash-complaints-pending {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.complainant-link {
+    text-decoration: none;
+    color: #5C821A;
+}
+.complainant-link:hover {
+    color: darkgreen;
 }
 /*show resident styles*/
 .show-resident-wrapper, .show-announcement-wrapper {
