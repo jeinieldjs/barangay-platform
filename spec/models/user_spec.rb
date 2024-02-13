@@ -13,6 +13,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:role) }
     it { should validate_presence_of(:contact_number)}
     it { should validate_numericality_of(:contact_number).only_integer }
-    it { should valdate_length_of(:contact_number).is_equal_to(11) }
+    it { should validate_length_of(:contact_number).is_equal_to(11) }
   end
 end
