@@ -150,6 +150,15 @@ nav {
 .complainant-link:hover {
     color: darkgreen;
 }
+
+.announce-link {
+    text-decoration: none;
+    color: white;
+}
+
+.announce-link:hover {
+    color: black;
+}
 /*show resident styles*/
 .show-resident-wrapper, .show-announcement-wrapper {
     display: flex;

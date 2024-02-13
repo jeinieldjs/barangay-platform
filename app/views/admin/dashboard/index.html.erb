@@ -6,7 +6,8 @@
     <div class='dash-announcement'>
       <% if @announcement %>
         <div class='dash-announcement-top'>
-          <h2><%= @announcement.title.upcase %></h2>
+          <h2><%= link_to @announcement.title.upcase, admin_announcement_path(@announcement), class: 'announce-link' %></h2>
+         
         </div>
         <div class='dash-announcement-body'>
           <p class='dash-announcement-date'><small>Published at: <%= @announcement.created_at.strftime('%d %b %Y, %H:%M:%S') %> || Updated at: <%= @announcement.updated_at.strftime('%d %b %Y, %H:%M:%S') %></small></p>
