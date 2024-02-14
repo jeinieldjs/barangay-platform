@@ -78,11 +78,20 @@ nav {
 .log-field, .reg-field, .complaint-field {
     margin-top: 15px;
 }
+
+select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .log-input, .reg-input, .announcement-input, .complaint-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
+
+
 .log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit {
     width: 30%;
     padding: 5px;
