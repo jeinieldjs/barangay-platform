@@ -38,12 +38,12 @@
   </div>
 </div>
 <script>
-  document.addEventListener("turbo:load", function() {
-    console.log("loaded")
+  console.log("loaded")
   var modal = document.getElementById("resident-details-modal");
   var button = document.getElementById("complaint-modal-link");
   var closeBtn = document.getElementsByClassName("close")[0];
-console.log(button)
+  console.log(button)
+
   button.onclick = function() {
     console.log("clicked")
     modal.style.display = "block";
@@ -58,6 +58,5 @@ console.log(button)
       modal.style.display = "none";
     }
   };
-});
 
 </script>
