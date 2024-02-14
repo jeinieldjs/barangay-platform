@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+require 'rails_helper'
+
+RSpec.describe Complaint, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+=======
 require 'rails_helper'
 
 RSpec.describe Complaint, type: :model do
@@ -12,3 +19,4 @@ RSpec.describe Complaint, type: :model do
  end
 
 end
+>>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2

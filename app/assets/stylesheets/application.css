@@ -61,6 +61,7 @@ nav {
     flex-direction: column;
     padding: 10px;
     margin-top: 100px;
+    margin-bottom: 100px;
     border-radius: 15px;
     border: 1px solid #5C821A;
     width: 30%; 
@@ -77,12 +78,25 @@ nav {
 .log-field, .reg-field, .complaint-field {
     margin-top: 15px;
 }
+
+select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .log-input, .reg-input, .announcement-input, .complaint-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
-.log-submit, .reg-submit, .complaint-submit, .status-submit {
+
+.announcement-text-area {
+    height: 300px;
+}
+
+
+.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -91,7 +105,7 @@ nav {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover {
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover, .search-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
@@ -99,6 +113,68 @@ nav {
 /*admin dashboard styles*/
 .admin-dash-wrapper {
     padding: 20px;
+    box-sizing: border-box;
+
+}
+.dash-announcement {
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+    border-top:none;
+    border: solid black 1px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+ 
+}
+.dash-announcement-top {
+    width: 100%;
+    background-color: #5C821A;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 15px 15px 0 0;
+}
+.dash-announcement-body {
+    width: 80%;
+    margin: auto;  
+}
+.dash-announcement-date {
+    text-align: center;
+    padding: 10px;
+    color: lightslategray;
+}
+.dash-announcement-content {
+    text-align: justify;
+    padding-bottom: 20px;;
+}
+.dash-complaint {
+    width: 100%;
+    border: solid 1px blue;
+}
+.dash-complaints-pending {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.complainant-link {
+    text-decoration: none;
+    color: #5C821A;
+}
+.complainant-link:hover {
+    color: darkgreen;
+}
+
+.announce-link {
+    text-decoration: none;
+    color: white;
+}
+
+.announce-link:hover {
+    color: black;
 }
 /*show resident styles*/
 .show-resident-wrapper, .show-announcement-wrapper {
@@ -192,9 +268,21 @@ nav {
     justify-content: center;
 }
 .residents-index-container {
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    
+}
+
+.pending-index-container {
     width: 50%;
     margin: auto;
     margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    
 }
 
 .residents-index-actions {
@@ -226,6 +314,24 @@ nav {
 .name-link:hover {
     color: #C6D166;
     font-weight: 600;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #5C821A; 
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #6d7336; 
 }
 
 /*edit status*/
@@ -420,6 +526,7 @@ nav {
 .complaint-card {
     width: 30%;
     height: 200px;
+    overflow-y: auto;
     margin: auto;
     border: solid 1px #5C821A;
     padding: 10px;
@@ -481,4 +588,115 @@ nav {
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+/*search bar*/
+.search-line {
+    width: 100%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-around;
+}
+.search-form {
+    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.search-input {
+    width: 70%;
+    padding: 5px;
+    border-radius: 5px;
+}
+.search-submit {
+    width: 20%;
+    padding: 5px;
+    background-color:  #5C821A;
+    border:none;
+    color: #ffffff;
+    border-radius: 7px;
+    text-transform: uppercase;
+}
+.search-submit:hover {
+    border: solid 2px #5C821A;
+    background-color: transparent;
+    color: #5C821A;
+}
+.index-link {
+    text-decoration: underline;
+}
+.wrapper-new-edit {
+    margin-bottom: 50px;
+}
+.dash-header {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: solid 1px lightgray;
+}
+.residents-dash-index {
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+/*resident details modal*/
+#resident-details-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+    background-color: #fefefedf;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 20px;
+}
+.close {
+    color: #5C821A;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.admin-complaint {
+    margin-top: 10%;
+}
+.modal-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border-bottom: solid 1px gray;
+}
+.modal-body {
+    padding: 10px;
+}
+.complaint-details button {
+    border: none;
+    background-color: transparent;
+    color: #5C821A;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
 }

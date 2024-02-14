@@ -2,15 +2,18 @@
   <div class="resident-dash-wrapper">
     <h1 class="page-title"> Welcome, <%= current_user.first_name %> <%= current_user.last_name %>!</h1>
     <div class="dash-container">
-    <h2>Latest announcements</h2><hr>
+    <div class="dash-header">
+      <h2>Latest announcements</h2>
+      <%= link_to "View All Announcements", resident_announcements_path, class: "action-link" %>
+    </div>
 
-    <div class="residents-index-container">
+    <div class="residents-dash-index">
     
       <% if @announcements.any? %>
         <% @announcements.each do |announcement| %>
           <div class="indiv-resident">
-            <%= link_to announcement.title, resident_announcement_path(announcement), class: "name-link" %>
-            <p><small>Posted at: <%= announcement.created_at.strftime("%d %b %Y, %H:%M:%S") %></small></p>
+            <h3><%= link_to announcement.title, resident_announcement_path(announcement), class: "name-link" %></h3>
+            <p><small>Posted at: <%= announcement.created_at.strftime("%d %b %Y, %H:%M:%S") %> || Updated at: <%= announcement.updated_at.strftime("%d %b %Y, %H:%M:%S") %></small></p>
             <p><%= truncate(announcement.content, length: 200) %></p>
           </div>
         <% end %>
@@ -18,9 +21,7 @@
         <p>No announcements found.</p>
       <% end %>
     </div>
-    <div class="announcement-link-container">
-    <%= link_to "View All Announcements", resident_announcements_path, class: "action-link" %>
-    </div>
+   
   </div>
   </div>
 <% else %>

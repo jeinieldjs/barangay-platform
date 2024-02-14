@@ -5,7 +5,6 @@ class Resident::DashboardController < ApplicationController
     def index
       @posts = Post.all
       @post = Post.new
-
       @announcements = Announcement.joins(:user)
                               .where(users: { role: 'admin', 
                                              barangay: current_user.barangay, 

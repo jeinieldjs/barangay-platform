@@ -18,6 +18,11 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "reg-input" %>
     </div>
 
+     <div class="reg-field">
+      <%= f.label :contact_number  %><br />
+      <%= f.text_field :contact_number, placeholder: "09*********", class: "reg-input" %>
+    </div>
+
     <div class="reg-field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -61,3 +66,43 @@
 
   <!--<%= render "devise/shared/links" %>-->
 </div>
+<script>
+    document.getElementById('user_province').addEventListener('change', function() {
+      var selectedProvince = this.value;
+      var cityMunicipalitySelect = document.getElementById('city_municipality_select');
+      console.log(selectedProvince)
+      fetch(`http://127.0.0.1:3000/api/psgc/fetch_cities_municipalities/${selectedProvince}`)
+        .then(response => response.json())
+        .then(data => {
+          cityMunicipalitySelect.innerHTML = '';
+         
+          data['data'].forEach(city => {
+            var option = document.createElement('option');
+            option.value = city.code;
+            option.text = city.name;
+            cityMunicipalitySelect.add(option);
+          });
+        })
+        .catch(error => console.error('Error fetching cities/municipalities:', error));
+    });
+
+    document.getElementById('city_municipality_select').addEventListener('change', function() {
+      var selectedCityMunicipality = this.value;
+      var barangaySelect = document.getElementById('barangay_select');
+      console.log(selectedCityMunicipality)
+      fetch(`http://127.0.0.1:3000/api/psgc/fetch_barangays/${selectedCityMunicipality}`)
+        .then(response => response.json())
+        .then(data => {
+          barangaySelect.innerHTML = '';
+         
+          data['data'].forEach(city => {
+            var option = document.createElement('option');
+            option.value = city.code;
+            option.text = city.name;
+            barangaySelect.add(option);
+          });
+        })
+        .catch(error => console.error('Error fetching barangays', error));
+    });
+
+  </script>

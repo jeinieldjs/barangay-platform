@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
     root to: "devise/sessions#new"
   end
 
@@ -24,20 +25,19 @@ Rails.application.routes.draw do
     
     resources :announcements
     resources :complaints, only: [:index, :edit, :update, :show]
+    resources :posts
   end
+
 
   namespace :resident do
     resources :dashboard, only: [:index]
     resources :posts, only: [:index, :new, :create, :show] do
       resources :comments, only: [:create, :destroy]
-      post :like, to: 'likes#create'
-      delete :dislike, to: 'likes#destroy'
-
+      resources :likes, only: [:create, :destroy]
       collection do
         get 'my_posts', to: 'posts#my_posts'
       end
     end
-
     resources :announcements, only: [:index, :show]
     resources :complaints, only: [:index, :show, :new, :create]
     
