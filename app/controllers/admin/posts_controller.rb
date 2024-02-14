@@ -1,5 +1,6 @@
 class Admin::PostsController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_post, only: [:destroy]
   
     def index
       current_user_location = {
@@ -31,8 +32,17 @@ class Admin::PostsController < ApplicationController
         render :new
       end
     end
-  
+
+    def destroy
+      @post.destroy
+      redirect_to admin_posts_path, notice: 'Post was successfully deleted.'
+    end
+
     private
+  
+    def set_post
+      @post = Post.find(params[:id])
+    end
   
     def post_params
       params.require(:post).permit(:title, :content, :anonymous)

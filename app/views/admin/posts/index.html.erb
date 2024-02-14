@@ -23,6 +23,7 @@
         <h3><%= post.title %></h3>
         <p><%= post.content %></p>
       </div>
+      <td><%= button_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </div>
 </div>
