@@ -11,7 +11,7 @@
   <div class="complaint-edit-status">
     <%= form_with(model: @complaint, url: admin_complaint_path(@complaint), method: :patch) do |form| %>
       <div class="field">
-        <%= form.label :status %>
+        <p><strong><%= form.label :status %></strong></p>
         <%= form.select :status, ['pending', 'resolved'], {},class: 'status-options' %>
       </div>
       <%= form.submit 'Update Status', class: 'status-submit status-button' %>

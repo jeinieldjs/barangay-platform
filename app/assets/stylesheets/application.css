@@ -91,6 +91,10 @@ select {
     border-radius: 5px;
 }
 
+.announcement-text-area {
+    height: 300px;
+}
+
 
 .log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit {
     width: 30%;
