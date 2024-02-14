@@ -28,6 +28,11 @@
     <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "reg-input create-resident-field" %>
   </div>
 
+   <div class="new-resident-field">
+    <%= form.label :contact_number %><br />
+    <%= form.text_field :contact_number, autofocus: true, class: "reg-input create-resident-field", placeholder: "09*********" %>
+  </div>
+
   <div class="new-resident-field">
     <%= form.label :complete_address %>
     <%= form.text_field :complete_address, class: "reg-input create-resident-field" %>

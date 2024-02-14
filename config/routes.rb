@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     
     resources :announcements
     resources :complaints, only: [:index, :edit, :update, :show]
+    resources :posts
   end
 
 

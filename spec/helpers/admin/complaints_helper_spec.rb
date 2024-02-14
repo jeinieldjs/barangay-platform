@@ -28,6 +28,6 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe Admin::ComplaintsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+ # pending "add some examples to (or delete) #{__FILE__}"
 end
 >>>>>>> 2e9cca6750febd46432c749f3ddfa3e268892af2:spec/helpers/admin/complaints_helper_spec.rb
