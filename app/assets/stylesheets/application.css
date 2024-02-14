@@ -646,3 +646,57 @@ select {
     margin: auto;
     margin-top: 20px;
 }
+/*resident details modal*/
+#resident-details-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+    background-color: #fefefedf;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 20px;
+}
+.close {
+    color: #5C821A;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.admin-complaint {
+    margin-top: 10%;
+}
+.modal-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border-bottom: solid 1px gray;
+}
+.modal-body {
+    padding: 10px;
+}
+.complaint-details button {
+    border: none;
+    background-color: transparent;
+    color: #5C821A;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
