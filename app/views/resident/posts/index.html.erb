@@ -1,11 +1,5 @@
-<style>
-  .comments-container.hidden {
-    display: none;
-  }
-</style>
-
 <div class="post-index-wrapper">
-  <h1 class="page-ttile">Posts from Barangay <%= current_user.barangay %></h1>
+  <h1 class="page-title">Posts from Barangay <%= current_user.barangay %></h1>
   
   <div class="post-index-actions">
     <%= link_to "Create New Post", new_resident_post_path, class: "action-link" %>
@@ -24,8 +18,8 @@
             <% end %>
           </strong><br>
           <small class="posted-at-info">
-          <% time_in_philippines = post.created_at.in_time_zone("Asia/Manila") %>
-          <%= time_in_philippines.strftime("%d %b %Y, %H:%M:%S") %>
+            <% time_in_philippines = post.created_at.in_time_zone("Asia/Manila") %>
+            <%= time_in_philippines.strftime("%d %b %Y, %H:%M:%S") %>
           </small>
         </p>
         <h3><%= post.title %></h3>
@@ -56,14 +50,22 @@
           Add Comment
         </button>
 
-
-        <div id="commentForm-<%= post.id %>" style="display: none;">
-          <form action="<%= resident_post_comments_path(post) %>" method="post">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <textarea name="comment[content]" rows="5" cols="20"></textarea>
-            <input type="submit" value="Submit">
-          </form>
+        <div id="commentModal-<%= post.id %>" class="comment-modal">
+          <div class="comment-modal-content">
+            <div class="comment-modal-top">
+              <h2 class="modal-title">Add Comment</h2>
+              <span class="comment-close">&times;</span>
+            </div>
+            <div class="comment-modal-body">
+              <form action="<%= resident_post_comments_path(post) %>" method="post", class="comment-modal-form">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <textarea name="comment[content]" id="comment-modal-textarea"></textarea>
+                <input type="submit" value="Submit" class="comment-modal-submit">
+              </form>
+            </div>
+          </div>
         </div>
+
         <!-- P TAG para idisplay ung comment -->
         <% if post.comments.present? %>
           <h6 class="comments-title">Comments:</h6> <!-- Moved "Comments:" text here -->
@@ -89,33 +91,41 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    let toggleButtons = document.querySelectorAll('.toggle-comments-btn');
+  let toggleButtons = document.querySelectorAll('.toggle-comments-btn');
 
-    toggleButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        let postId = this.getAttribute('data-post-id');
-        let commentsContainer = document.getElementById('commentsContainer-' + postId);
-        let commentsTitle = document.querySelector('.comments-title');
-        commentsContainer.classList.toggle('hidden');
-        commentsTitle.classList.toggle('hidden'); // Toggle comments title visibility
-        let commentCount = parseInt(this.getAttribute('data-comment-count'));
-        let likeCount = parseInt(this.getAttribute('data-like-count'));
-        if (commentsContainer.classList.contains('hidden')) {
-          this.textContent = 'See all ' + commentCount + ' comments';
-        } else {
-          this.textContent = 'Hide comments';
-        }
-      });
+  toggleButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      let postId = this.getAttribute('data-post-id');
+      let commentsContainer = document.getElementById('commentsContainer-' + postId);
+      let commentsTitle = document.querySelector('.comments-title');
+      commentsContainer.classList.toggle('hidden');
+      commentsTitle.classList.toggle('hidden'); // Toggle comments title visibility
+      let commentCount = parseInt(this.getAttribute('data-comment-count'));
+      let likeCount = parseInt(this.getAttribute('data-like-count'));
+      if (commentsContainer.classList.contains('hidden')) {
+        this.textContent = 'See all ' + commentCount + ' comments';
+      } else {
+        this.textContent = 'Hide comments';
+      }
     });
+  });
 
-    let commentBtns = document.querySelectorAll(".comment-btn");
-    commentBtns.forEach(function(btn) {
-      btn.addEventListener("click", function() {
-        let postId = this.getAttribute("data-post-id");
-        let commentForm = document.getElementById("commentForm-" + postId);
+  let commentBtns = document.querySelectorAll(".comment-btn");
+  commentBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      let postId = this.getAttribute("data-post-id");
+      let modal = document.getElementById("commentModal-" + postId);
+      modal.style.display = "block";
 
-        commentForm.style.display = (commentForm.style.display === "none") ? "block" : "none";
+      let span = modal.querySelector(".comment-close");
+      span.addEventListener("click", function() {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
       });
     });
   });

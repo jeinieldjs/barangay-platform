@@ -96,7 +96,7 @@ select {
 }
 
 
-.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit {
+.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit, .comment-modal-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -105,7 +105,7 @@ select {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover, .search-submit:hover {
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover,  .search-submit:hover, .comment-modal-submit:hover{
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
@@ -700,3 +700,70 @@ select {
     font-size: 1rem;
     font-weight: 600;
 }
+/*comments and posts*/
+.comments-container.hidden {
+    display: none;
+  }
+  .comment-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .comment-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 25px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .comment-close {
+    color: #5C821A;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .comment-close:hover,
+  .comment-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .comment-modal-top {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .comment-modal-body {
+    width: 70%;
+  }
+  .modal-title {
+    color: #5C821A;
+  }
+  
+  .comment-modal-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  #comment-modal-textarea{
+    margin-bottom: 10px;
+    height: 100px;
+    padding: 5px;
+  }
