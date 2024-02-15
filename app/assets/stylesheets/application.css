@@ -85,18 +85,18 @@ select {
     border-radius: 5px;
 }
 
-.log-input, .reg-input, .announcement-input, .complaint-input {
+.log-input, .reg-input, .announcement-input, .complaint-input, .post-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
 
-.announcement-text-area {
+.announcement-text-area, .post-text-area {
     height: 300px;
 }
 
 
-.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit, .comment-modal-submit {
+.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit, .comment-modal-submit, .post-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -105,7 +105,7 @@ select {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover,  .search-submit:hover, .comment-modal-submit:hover{
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover,  .search-submit:hover, .comment-modal-submit:hover, .post-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
@@ -251,7 +251,7 @@ select {
     background-color: rgba(245, 245, 245, 0.597);
     box-shadow: 5px 10px #5C821A;
 }
-.new-resident-field, .announcement-field {
+.new-resident-field, .announcement-field, .post-field {
     margin-bottom: 10px;
 }
 .page-title {
@@ -481,7 +481,7 @@ select {
     align-items: center;
     justify-content: center;
 }
-.new-complaint-wrapper, .complaint-index-wrapper {
+.new-complaint-wrapper, .complaint-index-wrapper, .new-post-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -767,3 +767,7 @@ select {
     height: 100px;
     padding: 5px;
   }
+.new-post-form {
+    width: 80%;
+    margin-top: 20px;
+}
