@@ -1,9 +1,5 @@
 <div class="post-index-wrapper">
   <h1 class="page-title">Posts from Barangay <%= current_user.barangay %></h1>
-  
-  <div class="post-index-actions">
-    POSTS
-  </div>
 
   <div class="posts-index-container">
     <% @posts.reverse_each do |post| %>
@@ -22,8 +18,11 @@
         </p>
         <h3><%= post.title %></h3>
         <p><%= post.content %></p>
+        <div class="posts-btn-container">
+         <%= button_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "posts-buttons admin-posts-index" %>
+         </div>
       </div>
-      <td><%= button_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
     <% end %>
   </div>
 </div>

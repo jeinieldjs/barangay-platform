@@ -843,6 +843,14 @@ select {
 .like-unlike-btn {
     padding: 0px 3px 0px 3px;
 }
+
+.posts-buttons, .like-unlike-btn:hover {
+    background-color: #5C821A;
+    border: none;
+    color: white;
+
+}
+
 .posts-buttons:hover {
     background-color: transparent;
     border: solid 1px #5C821A;
@@ -850,9 +858,17 @@ select {
 
 }
 
-.posts-buttons, .like-unlike-btn:hover {
-    background-color: #5C821A;
-    border: none;
-    color: white;
+.admin-posts-index {
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
 
+.posts-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding:10px;
+    margin-top: 10px;
+    
 }
