@@ -80,3 +80,4 @@ end
 
 gem 'webpacker', '~> 5.0'
 
+gem "font-awesome-sass", "~> 6.5.1"
