@@ -869,6 +869,8 @@ select {
     align-items: center;
     justify-content: flex-end;
     padding:10px;
-    margin-top: 10px;
-    
+    padding-bottom: 0px;
+}
+.no-comment-statement {
+    text-align: center;
 }

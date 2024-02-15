@@ -16,13 +16,47 @@
             <%= post.created_at.strftime("%d %b %Y, %H:%M:%S") %>
           </small>
         </p>
-        <h3><%= post.title %></h3>
+        <h3><%= post.title.upcase %></h3>
         <p><%= post.content %></p>
-        <div class="posts-btn-container">
-         <%= button_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "posts-buttons admin-posts-index" %>
-         </div>
+        <% if post.comments.present? %>
+          <h6 class="comments-title">Comments:</h6>
+          <% comment_count = post.comments.count %>
+          <button class="toggle-comments-btn" data-post-id="<%= post.id %>" data-visible="false">Show all <%= comment_count %> comments</button>
+          <div class="comments-container hidden" id="commentsContainer-<%= post.id %>">
+            <% post.comments.each do |comment| %>
+              <article>
+                <small>By: <%= comment.user.first_name %> <%= comment.user.last_name %></small> || 
+                <small><%= comment.created_at.in_time_zone("Asia/Manila").strftime("%d %b %Y, %H:%M:%S")  %></small>
+                <p><%= comment.content %></p>
+              </article>
+              <hr />
+            <% end %>
+          </div>
+        <% else %>
+        <div class="no-comment-statement">
+          <p><i><small>This post has no comments yet.</small></i></p>
+        </div>
+        <% end %>
+         <div class="posts-btn-container">
+          <%= button_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "posts-buttons admin-posts-index" %>
+        </div>
       </div>
-
     <% end %>
   </div>
 </div>
+
+<script>
+    const toggleButtons = document.querySelectorAll(".toggle-comments-btn");
+
+    toggleButtons.forEach(button => {
+      button.addEventListener("click", function() {
+        const postId = this.getAttribute("data-post-id");
+        const commentsContainer = document.getElementById(`commentsContainer-${postId}`);
+        const isVisible = this.getAttribute("data-visible") === "true";
+
+        commentsContainer.classList.toggle("hidden");
+        this.innerText = isVisible ? `Show all ${commentsContainer.children.length} comments` : "Hide comments";
+        this.setAttribute("data-visible", !isVisible);
+      });
+    });
+</script>
