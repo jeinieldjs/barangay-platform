@@ -30,23 +30,23 @@
         <div class="like-count">
           <small><i><%= like_count %></i> Likes</small> <!-- Display like count -->
         </div>
-
+        <div class="like-btn-container">
         <% if like.nil? %>
           <form class="like-form" action="<%= resident_post_likes_path(post) %>" method="post">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <input type="hidden" name="like[post_id]" value="<%= post.id %>">
-            <button type="submit">Like</button>
+            <button type="submit" class="like-unlike-btn">Like</button>
           </form>
         <% else %>
           <form class="unlike-form" action="<%= resident_post_like_path(post, like) %>" method="post">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <input type="hidden" name="_method" value="delete">
-            <button type="submit">Unlike</button>
+            <button type="submit" class="like-unlike-btn" >Unlike</button>
           </form>
         <% end %>
-
+        </div>
         <!-- Button modal -->
-        <button type="button" class="btn btn-primary comment-btn" data-post-id="<%= post.id %>" data-post-title="<%= post.title %>">
+        <button type="button" class="btn btn-primary comment-btn posts-buttons" data-post-id="<%= post.id %>" data-post-title="<%= post.title %>">
           Add Comment
         </button>
 
@@ -71,7 +71,7 @@
           <h6 class="comments-title">Comments:</h6> <!-- Moved "Comments:" text here -->
           <% comment_count = post.comments.count %>
           <% like_count = post.likes.count %>
-          <button class="toggle-comments-btn" data-post-id="<%= post.id %>" data-comment-count="<%= comment_count %>" data-like-count="<%= like_count %>">See all <%= comment_count %> comments</button>
+          <button class="toggle-comments-btn posts-buttons" data-post-id="<%= post.id %>" data-comment-count="<%= comment_count %>" data-like-count="<%= like_count %>">See all <%= comment_count %> comments</button>
           <div class="comments-container hidden" id="commentsContainer-<%= post.id %>">
             <% post.comments.each do |comment| %>
               <article>

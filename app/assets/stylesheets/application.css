@@ -13,8 +13,6 @@
  *= require_tree .
  *= require_self
  */
- @import "font-awesome";
-
  * {
     font-family: 'Poppins';
     box-sizing: border-box;
@@ -838,4 +836,23 @@ select {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+}
+.like-btn-container {
+    padding: 5px 0px 5px 0px;
+}
+.like-unlike-btn {
+    padding: 0px 3px 0px 3px;
+}
+.posts-buttons:hover {
+    background-color: transparent;
+    border: solid 1px #5C821A;
+    color: #5C821A;
+
+}
+
+.posts-buttons, .like-unlike-btn:hover {
+    background-color: #5C821A;
+    border: none;
+    color: white;
+
 }
