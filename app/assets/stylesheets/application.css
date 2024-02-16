@@ -868,9 +868,12 @@ select {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding:10px;
-    padding-bottom: 0px;
+    padding:10px 0px 0px 10px;
 }
 .no-comment-statement {
     text-align: center;
+}
+.delete-comment-btn {
+    padding: 3px;
+    margin-bottom: 5px;
 }

@@ -21,7 +21,7 @@
         <% if post.comments.present? %>
           <h6 class="comments-title">Comments:</h6>
           <% comment_count = post.comments.count %>
-          <button class="toggle-comments-btn" data-post-id="<%= post.id %>" data-visible="false">Show all <%= comment_count %> comments</button>
+          <button class="toggle-comments-btn posts-buttons" data-post-id="<%= post.id %>" data-comment-count="<%= comment_count %>" data-visible="false">Show all <%= comment_count %> comments</button>
           <div class="comments-container hidden" id="commentsContainer-<%= post.id %>">
             <% post.comments.each do |comment| %>
               <article>
@@ -47,15 +47,18 @@
 
 <script>
     const toggleButtons = document.querySelectorAll(".toggle-comments-btn");
+    
 
     toggleButtons.forEach(button => {
+      let commentCount = parseInt(button.getAttribute('data-comment-count'));
+
       button.addEventListener("click", function() {
         const postId = this.getAttribute("data-post-id");
         const commentsContainer = document.getElementById(`commentsContainer-${postId}`);
         const isVisible = this.getAttribute("data-visible") === "true";
 
         commentsContainer.classList.toggle("hidden");
-        this.innerText = isVisible ? `Show all ${commentsContainer.children.length} comments` : "Hide comments";
+        this.innerText = isVisible ? `Show all ${commentCount} comments` : "Hide comments";
         this.setAttribute("data-visible", !isVisible);
       });
     });
