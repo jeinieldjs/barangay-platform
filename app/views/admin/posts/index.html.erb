@@ -1,6 +1,8 @@
 <div class="post-index-wrapper">
   <h1 class="page-title">Posts from Barangay <%= current_user.barangay %></h1>
-
+   <div class="scroll-btn-container">
+    <button id="scroll-to-bottom-btn"><i class="fas fa-arrow-down" id="arrow-down"></i></button>
+  </div>
   <div class="posts-index-container">
     <% @posts.reverse_each do |post| %>
       <div class="indiv-post">
@@ -43,6 +45,9 @@
       </div>
     <% end %>
   </div>
+   <div class="scroll-btn-container">
+    <button id="scroll-to-top-btn"><i class="fas fa-arrow-up" id="arrow-up"></i></button>
+  </div>
 </div>
 
 <script>
@@ -62,4 +67,22 @@
         this.setAttribute("data-visible", !isVisible);
       });
     });
+
+    const scrollBtn = document.getElementById("scroll-to-bottom-btn");
+
+    scrollBtn.addEventListener("click", function(){
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+      });
+    })
+
+     const scrollTopBtn = document.getElementById("scroll-to-top-btn");
+
+    scrollTopBtn.addEventListener("click", function(){
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    })
 </script>

@@ -877,3 +877,26 @@ select {
     padding: 3px;
     margin-bottom: 5px;
 }
+.scroll-btn-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+#scroll-to-bottom-btn, #scroll-to-top-btn{
+    border-radius: 50%;
+    border: solid 2px #5C821A;
+    background-color: transparent;
+}
+#scroll-to-bottom-btn:hover, #scroll-to-top-btn:hover{
+    background-color: whitesmoke;
+}
+
+#arrow-down, #arrow-up{
+    color:#5C821A;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
