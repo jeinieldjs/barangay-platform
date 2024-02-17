@@ -1,10 +1,12 @@
 class Resident::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
-    if !@comment.save
-      flash[:notice] = "@comment.error.full_messages.to_sentence."
-    end
 
+    if @comment.save
+      flash[:notice] = "Comment added successfully."
+    elsif !@comment.save
+      flash[:alert] = @comment.errors.full_messages.to_sentence
+    end
     redirect_back(fallback_location: root_path)
   end
 
