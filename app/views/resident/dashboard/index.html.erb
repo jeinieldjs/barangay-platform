@@ -12,7 +12,7 @@
       <% if @announcements.any? %>
         <% @announcements.each do |announcement| %>
           <div class="indiv-resident">
-            <h3><%= link_to announcement.title, resident_announcement_path(announcement), class: "name-link" %></h3>
+            <h2><%= link_to announcement.title, resident_announcement_path(announcement), class: "name-link" %></h2>
             <p><small>Posted at: <%= announcement.created_at.strftime("%d %b %Y, %H:%M:%S") %> || Updated at: <%= announcement.updated_at.strftime("%d %b %Y, %H:%M:%S") %></small></p>
             <p><%= truncate(announcement.content, length: 200) %></p>
           </div>
