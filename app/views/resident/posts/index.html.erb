@@ -6,9 +6,16 @@
     <%= link_to "View My Posts", my_posts_resident_posts_path, class: "action-link" %>
   </div>
 
-  <div class="posts-index-container">
+  <div class="search-line">
+    <%= form_tag(resident_posts_path, method: :get, class: "search-form") do %>
+      <%= text_field_tag :content_query, params[:content_query], placeholder: "Search by content", class: "search-input" %>
+      <%= submit_tag "Search", class:"search-submit" %><br><br>
+    <% end %>
+  </div>
+
+  <div class="resident-end-posts-index-container ">
     <% @posts.reverse_each do |post| %>
-      <div class="indiv-post">
+      <div class="resident-end-indiv-post">
         <p>
           <strong>
             <% if post.anonymous? %>

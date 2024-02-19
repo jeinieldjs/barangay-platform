@@ -11,6 +11,10 @@ class Resident::PostsController < ApplicationController
     @posts = Post.joins(:user)
                      .where(users: { status: 'approved', province: current_user_location[:province], city_municipality: current_user_location[:city_municipality], barangay: current_user_location[:barangay] })
     @comments = Comment.all
+
+    if params[:content_query].present?
+      @posts = @posts.where("LOWER(content) LIKE ?", "%#{params[:content_query].downcase}%")
+    end
   
   end
 

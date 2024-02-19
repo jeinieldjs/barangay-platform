@@ -900,3 +900,22 @@ select {
     font-size: 1rem;
     font-weight: 600;
 }
+.resident-end-posts-index-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.resident-end-indiv-post {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #5C821A;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: rgb(245, 245, 245);
+}
