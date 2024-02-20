@@ -31,5 +31,20 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # Specifies the `pidfile` that Puma will use.
 pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
+if ENV.fetch("RAILS_ENV") == "production"
+  workers ENV.fetch("WEB_CONCURRENCY") { 4 }
+end
+
+if ENV.fetch("RAILS_ENV") == "production"
+  preload_app!
+end
+
+# --- START modified config from what ships with Rails 7 ---
+on_worker_boot do
+  ActiveSupport.on_load(:active_record) do
+    ActiveRecord::Base.establish_connection
+  end
+end
+
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
