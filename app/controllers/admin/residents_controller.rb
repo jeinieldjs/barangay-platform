@@ -54,10 +54,12 @@ class Admin::ResidentsController < ApplicationController
       end
 
       if @user.update(resident_params)
-        if @user.status == 'approved'
-          UserMailer.approved_email(@user).deliver_later
-        elsif @user.status == 'rejected'
-          UserMailer.rejected_email(@user).deliver_later
+        if @user.saved_change_to_status?
+          if @user.status == 'approved'
+            UserMailer.approved_email(@user).deliver_later
+          elsif @user.status == 'rejected'
+            UserMailer.rejected_email(@user).deliver_later
+          end
         end
 
         redirect_to admin_residents_path, notice: "Resident's account was successfully updated."
