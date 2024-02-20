@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
     root to: "devise/sessions#new"
   end
-
+  
+  patch 'profile/update_profile_picture', to: 'profile#update_profile_picture', as: 'update_profile_picture'
+  
   namespace :admin do
     resources :dashboard, only: [:index] do
       post :create_admin_account, on: :collection
