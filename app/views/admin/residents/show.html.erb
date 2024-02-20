@@ -2,6 +2,12 @@
   <h1 class="page-title">Resident Details</h1>
 
   <div class="show-resident-details">
+
+    <div class = "show-resident-profile-pic">
+      <% if @user.image.attached? %>
+        <%= image_tag(@user.image, style: "height:120px; width:120px", class: 'avatar') %>
+      <% end %>
+    </div>
    
     <p><strong style="color: #5C821A;">Last Name:</strong> <%= @user.last_name.titleize %></p>
     <p><strong style="color: #5C821A;">First Name:</strong> <%= @user.first_name.titleize %></p>

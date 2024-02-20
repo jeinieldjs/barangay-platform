@@ -128,7 +128,13 @@ nav {
     justify-content: flex-start;
     width: 40%;
 }
-
+.show-resident-profile-pic {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 /*log forms*/
 
 .log-form-container, .reg-form-container {
