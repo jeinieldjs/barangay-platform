@@ -52,6 +52,89 @@ nav {
    color: #5C821A;
    border-radius: 5px;
 } 
+/*profile-pic related*/
+.user-profile-wrapper {
+    border: solid 1px #5C821A;
+    border-radius: 15px;
+    width: 70%;
+    padding: 10px;
+    color: black;
+    display: flex;
+    flex-direction: row;;
+    align-items: center;
+    justify-content: space-around;
+    background-color: whitesmoke;
+}
+.profile-top-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile-name {
+    padding: 5px;
+    color: #5C821A;
+}
+.modal-actions{
+    margin-top: 10px;
+}
+.avatar-initials {
+    color: #5C821A;
+    border-radius: 50%;
+    border: solid 3px #5C821A;
+    padding: 5px;
+    font-weight: 600;
+    margin-right: 10px;  
+    height: 50px;
+    width: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar-initials:hover {
+    color:#fefefe;
+    background-color: #5C821A;
+}
+.avatar {
+    border-radius: 50%;
+    margin-right: 10px;   
+    border: solid 2px #5C821A;
+}
+.avatar:hover {
+    border: solid 2px black;
+}
+
+.pic-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.post-index-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40%;
+}
+.show-resident-profile-pic {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 /*log forms*/
 
 .log-form-container, .reg-form-container {

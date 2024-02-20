@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :image
+
   validates :first_name, :last_name, :email, :complete_address, :province, :city_municipality, :barangay, :role, :status, presence: true
   validates :contact_number, presence: true, numericality: { only_integer: true }, length: { is: 11 }
 
