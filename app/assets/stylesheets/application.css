@@ -302,12 +302,12 @@ select {
     border-bottom: solid 1px lightgrey;
 }
 .name-link {
-    color:#5C821A;
+    color:#24611c;
     text-decoration: none;
     text-transform: uppercase;
 }
 .name-link:visited {
-    color: #24611c; 
+    color: #5C821A ; 
     font-weight: 600;
     
 }
