@@ -61,7 +61,7 @@ nav {
     color: black;
     display: flex;
     flex-direction: row;;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-around;
     background-color: whitesmoke;
 }
@@ -75,6 +75,7 @@ nav {
 .profile-content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .profile-name {
     padding: 5px;

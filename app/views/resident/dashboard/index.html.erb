@@ -4,7 +4,7 @@
       <div class="profile-top-container">
         <div class="avatar-container" id="avatar-pic">
           <% if current_user.image.attached? %>
-            <%= image_tag(current_user.image, style: "height:50px; width:50px", class: 'avatar') %>
+            <%= image_tag(current_user.image, style: "height:100px; width:100px", class: 'avatar') %>
           <% else %>
           <div class="avatar-initials" id="image-container"><%= current_user.first_name[0] + current_user.last_name[0] %></div>
           <% end %>
