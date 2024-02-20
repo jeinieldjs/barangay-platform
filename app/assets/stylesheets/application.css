@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
  */
- * {
+* {
     font-family: 'Poppins';
     box-sizing: border-box;
     padding: 0;
     margin: 0;
- }
+}
+
 /*styles for navbar*/
 nav {
     padding: 10px;
@@ -26,19 +27,21 @@ nav {
     color: #FFFFFF;
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
 }
-.nav-links-container { 
+
+.nav-links-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
 }
+
 .nav-links {
     list-style: none;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .nav-links a {
@@ -48,13 +51,15 @@ nav {
 }
 
 .nav-links a:hover {
-   background-color:#FFFFFF ;
-   color: #5C821A;
-   border-radius: 5px;
-} 
+    background-color: #FFFFFF;
+    color: #5C821A;
+    border-radius: 5px;
+}
+
 /*log forms*/
 
-.log-form-container, .reg-form-container {
+.log-form-container,
+.reg-form-container {
     display: flex;
     align-items: center;
     margin: auto;
@@ -64,18 +69,27 @@ nav {
     margin-bottom: 100px;
     border-radius: 15px;
     border: 1px solid #5C821A;
-    width: 30%; 
+    width: 30%;
 }
-.log-form, .reg-form, .announcement-form, .complaint-form {
+
+.log-form,
+.reg-form,
+.announcement-form,
+.complaint-form {
     width: 70%;
     margin-top: 40px;
-    margin-bottom:40px;
+    margin-bottom: 40px;
 }
-.log-form h2, .reg-form h2 {
+
+.log-form h2,
+.reg-form h2 {
     text-transform: uppercase;
     text-align: center;
 }
-.log-field, .reg-field, .complaint-field {
+
+.log-field,
+.reg-field,
+.complaint-field {
     margin-top: 15px;
 }
 
@@ -85,47 +99,68 @@ select {
     border-radius: 5px;
 }
 
-.log-input, .reg-input, .announcement-input, .complaint-input, .post-input {
+.log-input,
+.reg-input,
+.announcement-input,
+.complaint-input,
+.post-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
 
-.announcement-text-area, .post-text-area {
+.announcement-text-area,
+.post-text-area {
     height: 300px;
 }
 
 
-.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit, .comment-modal-submit, .post-submit {
+.log-submit,
+.reg-submit,
+.complaint-submit,
+.status-submit,
+.search-submit,
+.comment-modal-submit,
+.post-submit {
     width: 30%;
     padding: 5px;
-    background-color:  #5C821A;
-    border:none;
+    background-color: #5C821A;
+    border: none;
     color: #ffffff;
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover,  .search-submit:hover, .comment-modal-submit:hover, .post-submit:hover {
+
+.log-submit:hover,
+.reg-submit:hover,
+.complaint-submit:hover,
+.status-submit:hover,
+.search-submit:hover,
+.comment-modal-submit:hover,
+.post-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
 }
+
 /*admin dashboard styles*/
 .admin-dash-wrapper {
     padding: 20px;
     box-sizing: border-box;
 
 }
+
 .dash-announcement {
     width: 85%;
     margin: auto;
     margin-top: 50px;
-    border-top:none;
+    border-top: none;
     border: solid black 1px;
     border-radius: 15px;
     margin-bottom: 50px;
- 
+
 }
+
 .dash-announcement-top {
     width: 100%;
     background-color: #5C821A;
@@ -134,23 +169,29 @@ select {
     padding: 5px;
     border-radius: 15px 15px 0 0;
 }
+
 .dash-announcement-body {
     width: 80%;
-    margin: auto;  
+    margin: auto;
 }
+
 .dash-announcement-date {
     text-align: center;
     padding: 10px;
     color: lightslategray;
 }
+
 .dash-announcement-content {
     text-align: justify;
-    padding-bottom: 20px;;
+    padding-bottom: 20px;
+    ;
 }
+
 .dash-complaint {
     width: 100%;
     border: solid 1px blue;
 }
+
 .dash-complaints-pending {
     width: 90%;
     margin: auto;
@@ -160,10 +201,12 @@ select {
     justify-content: flex-start;
     flex-wrap: wrap;
 }
+
 .complainant-link {
     text-decoration: none;
     color: #5C821A;
 }
+
 .complainant-link:hover {
     color: darkgreen;
 }
@@ -176,36 +219,45 @@ select {
 .announce-link:hover {
     color: black;
 }
+
 /*show resident styles*/
-.show-resident-wrapper, .show-announcement-wrapper {
+.show-resident-wrapper,
+.show-announcement-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
 }
-.show-resident-details, .show-announcement-details {
+
+.show-resident-details,
+.show-announcement-details {
     width: 30%;
     margin-top: 20px;
     background-color: rgba(245, 245, 245, 0.597);
     box-shadow: 5px 10px #5C821A;
-    border:none;
+    border: none;
     border-radius: 25px;
     padding: 30px;
 }
-.show-resident-actions, .show-announcement-actions {
+
+.show-resident-actions,
+.show-announcement-actions {
     width: 50%;
-    margin:auto;
+    margin: auto;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding-top: 20px;
 }
-.delete-button, .user-submit {
+
+.delete-button,
+.user-submit {
     border: none;
     background-color: transparent;
 }
+
 .action-link {
     text-decoration: none;
     color: #5C821A;
@@ -213,11 +265,13 @@ select {
     font-weight: 700;
     font-size: 1rem;
 }
+
 .action-link:hover {
     color: white;
     background-color: #5C821A;
     border-radius: 10px;
 }
+
 /* flash, notice, alert */
 .flash-container {
     display: flex;
@@ -234,13 +288,16 @@ select {
     background-color: rgba(211, 211, 211, 0.556);
     width: 100%;
 }
+
 .alert {
     color: maroon;
     background-color: rgba(211, 211, 211, 0.556);
     width: 100%;
 }
+
 /* admin/residents form */
-.resident-form, .announcement-form {
+.resident-form,
+.announcement-form {
     border-radius: 25px;
     padding: 30px;
     width: 40%;
@@ -251,15 +308,20 @@ select {
     background-color: rgba(245, 245, 245, 0.597);
     box-shadow: 5px 10px #5C821A;
 }
-.new-resident-field, .announcement-field, .post-field {
+
+.new-resident-field,
+.announcement-field,
+.post-field {
     margin-bottom: 10px;
 }
+
 .page-title {
     color: #5C821A;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 20px;
 }
+
 /*residents index */
 .residents-index-wrapper {
     display: flex;
@@ -267,13 +329,14 @@ select {
     align-items: center;
     justify-content: center;
 }
+
 .residents-index-container {
     width: 70%;
     margin: auto;
     margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
-    
+
 }
 
 .pending-index-container {
@@ -282,18 +345,19 @@ select {
     margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
-    
+
 }
 
 .residents-index-actions {
     width: 50%;
-    margin:auto;
+    margin: auto;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
 }
+
 .indiv-resident {
     padding: 20px;
     display: flex;
@@ -301,16 +365,19 @@ select {
     justify-content: center;
     border-bottom: solid 1px lightgrey;
 }
+
 .name-link {
-    color:#24611c;
+    color: #24611c;
     text-decoration: none;
     text-transform: uppercase;
 }
+
 .name-link:visited {
-    color: #5C821A ; 
+    color: #5C821A;
     font-weight: 600;
-    
+
 }
+
 .name-link:hover {
     color: #C6D166;
     font-weight: 600;
@@ -319,19 +386,19 @@ select {
 ::-webkit-scrollbar {
     width: 10px;
 }
-  
+
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
 }
-   
+
 ::-webkit-scrollbar-thumb {
-    background: #5C821A; 
+    background: #5C821A;
     border-radius: 10px;
 }
-  
+
 ::-webkit-scrollbar-thumb:hover {
-    background: #6d7336; 
+    background: #6d7336;
 }
 
 /*edit status*/
@@ -341,6 +408,7 @@ select {
     justify-content: flex-end;
     padding: 20px;
 }
+
 .approve-button {
     text-transform: uppercase;
     font-size: 0.8rem;
@@ -348,9 +416,10 @@ select {
     background-color: darkgreen;
     color: #FFFFFF;
     padding: 5px 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
     margin-right: 20px;
 }
+
 .reject-button {
     text-transform: uppercase;
     font-size: 0.8rem;
@@ -360,25 +429,30 @@ select {
     padding: 5px 10px;
     border-radius: 10px;
 }
+
 .approve-button:hover {
     background-color: rgba(0, 100, 0, 0.552);
 }
+
 .reject-button:hover {
     background-color: rgba(128, 0, 0, 0.645);
 }
+
 /*pending resident dashboard*/
 .pending-dash {
     width: 30%;
-    margin:auto;
+    margin: auto;
     padding: 40px;
     margin-top: 50px;
     border-radius: 25px;
     background-color: rgba(245, 245, 245, 0.597);
     box-shadow: 5px 10px #5C821A;
 }
+
 .pending-dash strong {
     color: #5C821A;
 }
+
 /*posts styles*/
 .post-index-wrapper {
     display: flex;
@@ -386,7 +460,8 @@ select {
     align-items: center;
     justify-content: center;
 }
-.post-index-container{
+
+.post-index-container {
     width: 50%;
     margin: auto;
     margin-top: 20px;
@@ -394,15 +469,16 @@ select {
 
 .post-index-actions {
     width: 50%;
-    margin:auto;
+    margin: auto;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
     margin-bottom: 10px;
 
 }
+
 .indiv-post {
     padding: 20px;
     display: flex;
@@ -410,6 +486,7 @@ select {
     justify-content: center;
     border-bottom: solid 1px lightgrey;
 }
+
 .post-reactions-container {
     display: flex;
     flex-direction: row;
@@ -417,6 +494,7 @@ select {
     justify-content: space-around;
     padding: 10px;
 }
+
 .post-comments-container {
     display: flex;
     flex-direction: column;
@@ -424,9 +502,11 @@ select {
     justify-content: center;
     padding: 10px;
 }
+
 .comment-form {
     width: 100%;
 }
+
 .comment-text-area {
     width: 90%;
     padding: 5px;
@@ -439,25 +519,30 @@ select {
     border: solid 1px #5C821A;
     padding: 5px;
 }
+
 .submit-comment:hover {
     background-color: transparent;
     color: #5C821A;
     border: solid 1px #5C821A;
 }
+
 .like-btn:hover {
     color: #5C821A;
     text-decoration: none;
     font-weight: 600;
 }
+
 .dislike-btn:hover {
     color: maroon;
     text-decoration: none;
     font-weight: 600;
 }
+
 .posted-at-info {
     font-size: 0.7rem;
     font-style: italic;
 }
+
 /*resident dashboard home*/
 .resident-dash-wrapper {
     display: flex;
@@ -468,8 +553,10 @@ select {
 
 .dash-container {
     padding: 10px;
-    width: 100%; /*check if consistent*/
+    width: 100%;
+    /*check if consistent*/
 }
+
 .announcement-link-container {
     display: flex;
     flex-direction: row;
@@ -477,12 +564,16 @@ select {
     justify-content: flex-end;
     padding-right: 30px;
 }
+
 .resident-show-announcement-actions {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.new-complaint-wrapper, .complaint-index-wrapper, .new-post-wrapper {
+
+.new-complaint-wrapper,
+.complaint-index-wrapper,
+.new-post-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -490,16 +581,18 @@ select {
     width: 60%;
     margin: auto;
 }
+
 .complaint-description {
     height: 200px;
 }
+
 .complaint-link {
     color: white;
     background-color: #5C821A;
     border: none;
     border-radius: 10px;
-    padding: 5px; 
-    text-decoration: none; 
+    padding: 5px;
+    text-decoration: none;
 }
 
 .complaint-link:hover {
@@ -519,11 +612,13 @@ select {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .no-complaints {
     margin-top: 40px;
     color: lightslategray;
     text-align: center;
 }
+
 .complaint-card {
     width: 30%;
     height: 200px;
@@ -536,29 +631,34 @@ select {
     flex-direction: column;
     margin-top: 20px;
 }
+
 .complaint-top {
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
+
 .status-badge.pending {
     color: white;
     background-color: maroon;
     padding: 3px;
-    border-radius:5px;
-    font-size: 0.8rem; 
+    border-radius: 5px;
+    font-size: 0.8rem;
 }
+
 .status-badge.resolved {
     color: white;
     background-color: #5C821A;
     padding: 3px;
-    border-radius:5px;
+    border-radius: 5px;
     font-size: 0.8rem;
 }
+
 .complaint-details {
     margin-top: 10px;
 }
+
 .complaint-card-show {
     width: 40%;
     margin: auto;
@@ -570,17 +670,22 @@ select {
     flex-direction: column;
     margin-top: 20px;
 }
+
 .status-button {
     margin-top: 10px;
 }
+
 .status-options {
     text-transform: uppercase;
     padding: 5px;
 }
+
 .status-labels {
     padding: 20px;
 }
-.pending-complaints, .resolved-complaints {
+
+.pending-complaints,
+.resolved-complaints {
     border-top: solid 1px lightgray;
     width: 90%;
     margin: auto;
@@ -591,62 +696,72 @@ select {
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
+
 /*search bar*/
 .search-line {
     width: 100%;
-    margin:auto;
+    margin: auto;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
+
 .search-form {
     width: 50%;
-    margin:auto;
+    margin: auto;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
 }
+
 .search-input {
     width: 70%;
     padding: 5px;
     border-radius: 5px;
 }
+
 .search-submit {
     width: 20%;
     padding: 5px;
-    background-color:  #5C821A;
-    border:none;
+    background-color: #5C821A;
+    border: none;
     color: #ffffff;
     border-radius: 7px;
     text-transform: uppercase;
 }
+
 .search-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
 }
+
 .index-link {
     text-decoration: underline;
 }
+
 .wrapper-new-edit {
     margin-bottom: 50px;
 }
+
 .dash-header {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     border-bottom: solid 1px lightgray;
 }
+
 .residents-dash-index {
     width: 70%;
     margin: auto;
     margin-top: 20px;
 }
+
 /*resident details modal*/
 #resident-details-modal {
     display: none;
@@ -659,6 +774,7 @@ select {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
 .modal-content {
     background-color: #fefefedf;
     margin: 20px auto;
@@ -667,21 +783,25 @@ select {
     width: 40%;
     border-radius: 20px;
 }
+
 .close {
     color: #5C821A;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
+
 .admin-complaint {
     margin-top: 10%;
 }
+
 .modal-top {
     display: flex;
     flex-direction: row;
@@ -690,9 +810,11 @@ select {
     text-transform: uppercase;
     border-bottom: solid 1px gray;
 }
+
 .modal-body {
     padding: 10px;
 }
+
 .complaint-details button {
     border: none;
     background-color: transparent;
@@ -701,11 +823,13 @@ select {
     font-size: 1rem;
     font-weight: 600;
 }
+
 /*comments and posts*/
 .comments-container.hidden {
     display: none;
-  }
-  .comment-modal {
+}
+
+.comment-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -715,9 +839,9 @@ select {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-  }
+}
 
-  .comment-modal-content {
+.comment-modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -727,51 +851,56 @@ select {
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
+}
 
-  .comment-close {
+.comment-close {
     color: #5C821A;
     float: right;
     font-size: 2rem;
     font-weight: bold;
-  }
+}
 
-  .comment-close:hover,
-  .comment-close:focus {
+.comment-close:hover,
+.comment-close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .comment-modal-top {
+.comment-modal-top {
     width: 70%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-  }
-  .comment-modal-body {
+}
+
+.comment-modal-body {
     width: 70%;
-  }
-  .modal-title {
+}
+
+.modal-title {
     color: #5C821A;
-  }
-  
-  .comment-modal-form {
+}
+
+.comment-modal-form {
     display: flex;
     flex-direction: column;
     padding: 10px;
-  }
-  #comment-modal-textarea{
+}
+
+#comment-modal-textarea {
     margin-bottom: 10px;
     height: 100px;
     padding: 5px;
-  }
+}
+
 .new-post-form {
     width: 80%;
     margin-top: 20px;
 }
+
 /* my post page */
 .indiv-post {
     border: 1px solid #5C821A;
@@ -780,71 +909,75 @@ select {
     margin-bottom: 20px;
     background-color: rgb(245, 245, 245);
 }
-  
+
 .author-info {
     font-weight: bold;
 }
-  
+
 .posted-at-info {
     font-size: 12px;
     color: #777;
 }
-  
+
 .post-title {
     font-size: 20px;
     margin-bottom: 10px;
 }
-  
+
 .post-content {
     margin-bottom: 10px;
 }
-  
+
 .comments-section {
     margin-top: 20px;
 }
-  
-  
+
+
 .comment {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
-  
-  
+
+
 .comment-info {
     font-weight: bold;
 }
-  
+
 .comment-content {
     margin-top: 5px;
 }
-  
-  
+
+
 .comment-form {
     margin-top: 20px;
 }
-  
-  
-.comment-form input[type="text"], .comment-form textarea {
+
+
+.comment-form input[type="text"],
+.comment-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
 }
-  
+
 .comment-form input[type="submit"] {
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
 }
+
 .like-btn-container {
     padding: 5px 0px 5px 0px;
 }
+
 .like-unlike-btn {
     padding: 0px 3px 0px 3px;
 }
 
-.posts-buttons, .like-unlike-btn:hover {
+.posts-buttons,
+.like-unlike-btn:hover {
     background-color: #5C821A;
     border: none;
     color: white;
@@ -868,15 +1001,18 @@ select {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding:10px 0px 0px 10px;
+    padding: 10px 0px 0px 10px;
 }
+
 .no-comment-statement {
     text-align: center;
 }
+
 .delete-comment-btn {
     padding: 3px;
     margin-bottom: 5px;
 }
+
 .scroll-btn-container {
     width: 90%;
     display: flex;
@@ -885,21 +1021,27 @@ select {
     justify-content: flex-end;
     margin-bottom: 10px;
 }
-#scroll-to-bottom-btn, #scroll-to-top-btn{
+
+#scroll-to-bottom-btn,
+#scroll-to-top-btn {
     border-radius: 50%;
     border: solid 2px #5C821A;
     background-color: transparent;
 }
-#scroll-to-bottom-btn:hover, #scroll-to-top-btn:hover{
+
+#scroll-to-bottom-btn:hover,
+#scroll-to-top-btn:hover {
     background-color: whitesmoke;
 }
 
-#arrow-down, #arrow-up{
-    color:#5C821A;
+#arrow-down,
+#arrow-up {
+    color: #5C821A;
     padding: 10px;
     font-size: 1rem;
     font-weight: 600;
 }
+
 .resident-end-posts-index-container {
     width: 100%;
     display: flex;
@@ -908,6 +1050,7 @@ select {
     flex-direction: column;
     margin-top: 10px;
 }
+
 .resident-end-indiv-post {
     width: 60%;
     padding: 20px;
@@ -918,4 +1061,160 @@ select {
     border-radius: 5px;
     margin-bottom: 20px;
     background-color: rgb(245, 245, 245);
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media only screen and (max-width: 820px) {
+    .nav-links {
+        display: none;
+        /* Hide the nav links */
+    }
+
+    .hamburger {
+        position: relative;
+        display: block;
+        width: 35px;
+        cursor: pointer;
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+    }
+
+    .hamburger .bar,
+    .hamburger:after,
+    .hamburger:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: rgb(255, 255, 255);
+        margin: 6px;
+        margin-left: -15px;
+        transition: 0.4s;
+    }
+
+    .hamburger.is-active:before {
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+
+    .hamburger.is-active:after {
+        transform: rotate(45deg) translate(-9px, -6px);
+    }
+
+    .hamburger.is-active .bar {
+        opacity: 0;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        width: 100%;
+        left: 120%;
+        min-height: 100vh;
+        display: block;
+        z-index: 98;
+        background: #464646;
+        padding-top: 120px;
+        transition: 0.4s;
+    }
+
+    .mobile-nav.is-active {
+        left: 0;
+    }
+
+    .mobile-nav a {
+        display: block;
+        margin: 0 auto 16px;
+        width: 200px;
+        text-align: center;
+        padding: 12px 16px;
+        background: greenyellow;
+        color: black;
+        text-decoration: none;
+    }
+
+    .nav-links.active {
+        display: block;
+        /* Show the nav links when hamburger menu is active */
+    }
+
+    .mobile-nav a:hover {
+        background-color: #C6D166;
+    }
+
+    .complaint-card-wrapper {
+        border-top: solid 1px lightgray;
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .complaint-card {
+        width: 70%;
+        font-size: large;
+    }
+
+    .resident-end-indiv-post h3 {
+        font-size: small;
+        overflow-y: auto;
+    }
+
+    .resident-end-indiv-post p {
+        font-size: small;
+    }
+
+    .search-form {
+        width: 50%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .search-input {
+        width: 150%;
+    }
+
+    .search-submit {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    .dash-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .name-link {
+        font-size: 20px;
+        overflow-y: auto;
+    }
+
+    .log-form-container,
+    .reg-form-container {
+        width: 80%;
+    }
+
+    .pending-dash {
+        width: 80%;
+        margin: auto;
+        padding: 40px;
+        margin-top: 50px;
+        border-radius: 25px;
+        background-color: rgba(245, 245, 245, 0.597);
+        box-shadow: 5px 10px #5C821A;
+    }
 }
