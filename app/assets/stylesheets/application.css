@@ -1217,4 +1217,26 @@ select {
         background-color: rgba(245, 245, 245, 0.597);
         box-shadow: 5px 10px #5C821A;
     }
+
+    .complaint-card-show {
+        width: 80%;
+        margin: auto;
+        background-color: rgba(245, 245, 245, 0.597);
+        box-shadow: 5px 10px #5C821A;
+        padding: 20px;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .log-submit,
+    .reg-submit,
+    .complaint-submit,
+    .status-submit,
+    .search-submit,
+    .comment-modal-submit,
+    .post-submit {
+        width: 50%;
+    }
 }
