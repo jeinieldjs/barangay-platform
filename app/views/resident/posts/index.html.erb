@@ -14,14 +14,14 @@
   </div>
 
   <div class="resident-end-posts-index-container ">
-    <% @posts.reverse_each do |post| %>
+    <% @posts.order(created_at: :desc).each do |post| %>
       <div class="resident-end-indiv-post">
         <p>
           <strong>
             <% if post.anonymous? %>
               <span>Anonymous:</span>
             <% else %>
-              <span><%= post.user.first_name %>:</span>
+              <span><%= post.user.first_name %> <%= post.user.last_name %>:</span>
             <% end %>
           </strong><br>
           <small class="posted-at-info">
@@ -82,7 +82,8 @@
           <div class="comments-container hidden" id="commentsContainer-<%= post.id %>">
             <% post.comments.each do |comment| %>
               <article>
-                <small>By: <%= comment.user.first_name %> <%= comment.user.last_name %></small>
+                <small>By: <%= comment.user.first_name %> <%= comment.user.last_name %></small> || 
+                <small><%= comment.created_at.in_time_zone("Asia/Manila").strftime("%d %b %Y, %H:%M:%S")  %></small>
                 <p><%= comment.content %></p>
                 <% if current_user == comment.user %>
                   <div class="posts-btn-container">

@@ -7,7 +7,7 @@
     <p class="no-complaints">You have not filed any complaints yet.</p>
   <% else %>
     <div class="complaint-card-wrapper">
-      <% @complaints.each do |complaint| %>
+      <% @complaints.order(created_at: :desc).each do |complaint| %>
         <div class="complaint-card">
          <div class="complaint-top">
           <h3 class="complaint-subject"> <%= link_to complaint.subject, resident_complaint_path(complaint), class: 'name-link' %></h3>
@@ -18,4 +18,5 @@
         </div>
       <% end %>
     </div>
+    <br>
   <% end %>

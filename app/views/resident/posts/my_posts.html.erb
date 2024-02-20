@@ -7,15 +7,15 @@
     <%= link_to "Back to All Posts", resident_posts_path, class: "action-link" %>
   </div>
 
-  <div class="posts-index-container">
-  <% @user_posts.reverse_each do |post| %>
-    <div class="indiv-post">
+  <div class="resident-end-posts-index-container">
+  <% @user_posts.order(created_at: :desc).each do |post| %>
+    <div class="resident-end-indiv-post ">
       <p>
         <strong>
           <% if post.anonymous? %>
             <span>Anonymous:</span>
           <% else %>
-            <span><%= post.user.first_name %>:</span>
+            <span><%= post.user.first_name %> <%= post.user.last_name %>:</span>
           <% end %>
         </strong><br>
         <small class="posted-at-info">
