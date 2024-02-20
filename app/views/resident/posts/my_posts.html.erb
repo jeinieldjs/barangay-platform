@@ -11,13 +11,21 @@
   <% @user_posts.order(created_at: :desc).each do |post| %>
     <div class="resident-end-indiv-post ">
       <p>
-        <strong>
           <% if post.anonymous? %>
-            <span>Anonymous:</span>
+            <strong><span>Anonymous:</span></strong>
           <% else %>
-            <span><%= post.user.first_name %> <%= post.user.last_name %>:</span>
+            <div class="post-index-top">
+              <% if post.user.image.attached? %>
+                <%= image_tag(post.user.image, style: "height:50px; width:50px", class: 'avatar') %>
+              <% else %>
+                <div class="avatar-initials" id="image-container">
+                  <%= post.user.first_name[0] + post.user.last_name[0] %>
+                </div>
+              <% end %>
+              <strong><span><%= post.user.first_name %> <%= post.user.last_name %>:</span></strong>
+            </div>
           <% end %>
-        </strong><br>
+          <br>
         <small class="posted-at-info">
         <%= post.created_at.strftime("%d %b %Y, %H:%M:%S") %>
         </small>

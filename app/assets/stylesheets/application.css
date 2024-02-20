@@ -121,6 +121,13 @@ nav {
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
+.post-index-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40%;
+}
 
 /*log forms*/
 
