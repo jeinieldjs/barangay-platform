@@ -35,6 +35,7 @@ class Admin::ResidentsController < ApplicationController
       @user = User.new(resident_params)
       if @user.save
         redirect_to admin_residents_path, notice: "Resident's account was successfully created."
+        UserMailer.approved_email(@user).deliver_later
       else
         render :new, status: :unprocessable_entity
       end
@@ -53,6 +54,14 @@ class Admin::ResidentsController < ApplicationController
       end
 
       if @user.update(resident_params)
+        if @user.saved_change_to_status?
+          if @user.status == 'approved'
+            UserMailer.approved_email(@user).deliver_later
+          elsif @user.status == 'rejected'
+            UserMailer.rejected_email(@user).deliver_later
+          end
+        end
+
         redirect_to admin_residents_path, notice: "Resident's account was successfully updated."
       else
         render :edit, status: :unprocessable_entity

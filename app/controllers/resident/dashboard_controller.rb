@@ -11,7 +11,7 @@ class Resident::DashboardController < ApplicationController
                                              city_municipality: current_user.city_municipality,
                                              province: current_user.province })
                               .order(created_at: :desc)
-                              .limit(5)
+                              .limit(3)
 
     end
   

@@ -85,18 +85,18 @@ select {
     border-radius: 5px;
 }
 
-.log-input, .reg-input, .announcement-input, .complaint-input {
+.log-input, .reg-input, .announcement-input, .complaint-input, .post-input {
     width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
 
-.announcement-text-area {
+.announcement-text-area, .post-text-area {
     height: 300px;
 }
 
 
-.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit {
+.log-submit, .reg-submit, .complaint-submit, .status-submit, .search-submit, .comment-modal-submit, .post-submit {
     width: 30%;
     padding: 5px;
     background-color:  #5C821A;
@@ -105,7 +105,7 @@ select {
     border-radius: 7px;
     text-transform: uppercase;
 }
-.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover, .search-submit:hover {
+.log-submit:hover, .reg-submit:hover, .complaint-submit:hover, .status-submit:hover,  .search-submit:hover, .comment-modal-submit:hover, .post-submit:hover {
     border: solid 2px #5C821A;
     background-color: transparent;
     color: #5C821A;
@@ -251,7 +251,7 @@ select {
     background-color: rgba(245, 245, 245, 0.597);
     box-shadow: 5px 10px #5C821A;
 }
-.new-resident-field, .announcement-field {
+.new-resident-field, .announcement-field, .post-field {
     margin-bottom: 10px;
 }
 .page-title {
@@ -302,12 +302,12 @@ select {
     border-bottom: solid 1px lightgrey;
 }
 .name-link {
-    color:#5C821A;
+    color:#24611c;
     text-decoration: none;
     text-transform: uppercase;
 }
 .name-link:visited {
-    color: #6d7336; 
+    color: #5C821A ; 
     font-weight: 600;
     
 }
@@ -400,7 +400,8 @@ select {
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
-    border-bottom: solid 1px lightgrey;
+    margin-bottom: 10px;
+
 }
 .indiv-post {
     padding: 20px;
@@ -481,7 +482,7 @@ select {
     align-items: center;
     justify-content: center;
 }
-.new-complaint-wrapper, .complaint-index-wrapper {
+.new-complaint-wrapper, .complaint-index-wrapper, .new-post-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -699,4 +700,222 @@ select {
     padding: 0;
     font-size: 1rem;
     font-weight: 600;
+}
+/*comments and posts*/
+.comments-container.hidden {
+    display: none;
+  }
+  .comment-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .comment-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 25px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .comment-close {
+    color: #5C821A;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .comment-close:hover,
+  .comment-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .comment-modal-top {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .comment-modal-body {
+    width: 70%;
+  }
+  .modal-title {
+    color: #5C821A;
+  }
+  
+  .comment-modal-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  #comment-modal-textarea{
+    margin-bottom: 10px;
+    height: 100px;
+    padding: 5px;
+  }
+.new-post-form {
+    width: 80%;
+    margin-top: 20px;
+}
+/* my post page */
+.indiv-post {
+    border: 1px solid #5C821A;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(245, 245, 245);
+}
+  
+.author-info {
+    font-weight: bold;
+}
+  
+.posted-at-info {
+    font-size: 12px;
+    color: #777;
+}
+  
+.post-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+  
+.post-content {
+    margin-bottom: 10px;
+}
+  
+.comments-section {
+    margin-top: 20px;
+}
+  
+  
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+  
+  
+.comment-info {
+    font-weight: bold;
+}
+  
+.comment-content {
+    margin-top: 5px;
+}
+  
+  
+.comment-form {
+    margin-top: 20px;
+}
+  
+  
+.comment-form input[type="text"], .comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+  
+.comment-form input[type="submit"] {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.like-btn-container {
+    padding: 5px 0px 5px 0px;
+}
+.like-unlike-btn {
+    padding: 0px 3px 0px 3px;
+}
+
+.posts-buttons, .like-unlike-btn:hover {
+    background-color: #5C821A;
+    border: none;
+    color: white;
+
+}
+
+.posts-buttons:hover {
+    background-color: transparent;
+    border: solid 1px #5C821A;
+    color: #5C821A;
+
+}
+
+.admin-posts-index {
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.posts-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding:10px 0px 0px 10px;
+}
+.no-comment-statement {
+    text-align: center;
+}
+.delete-comment-btn {
+    padding: 3px;
+    margin-bottom: 5px;
+}
+.scroll-btn-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+#scroll-to-bottom-btn, #scroll-to-top-btn{
+    border-radius: 50%;
+    border: solid 2px #5C821A;
+    background-color: transparent;
+}
+#scroll-to-bottom-btn:hover, #scroll-to-top-btn:hover{
+    background-color: whitesmoke;
+}
+
+#arrow-down, #arrow-up{
+    color:#5C821A;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.resident-end-posts-index-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.resident-end-indiv-post {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #5C821A;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: rgb(245, 245, 245);
 }

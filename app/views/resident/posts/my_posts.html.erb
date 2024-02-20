@@ -1,108 +1,21 @@
-<style>
-.post-index-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.page-title {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.post-index-actions {
-  margin-bottom: 20px;
-}
-
-.action-link {
-  color: #007bff; /* Blue color for links */
-  text-decoration: none;
-  margin-right: 20px;
-}
-
-/* Style for individual posts */
-.indiv-post {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.author-info {
-  font-weight: bold;
-}
-
-.posted-at-info {
-  font-size: 12px;
-  color: #777;
-}
-
-.post-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.post-content {
-  margin-bottom: 10px;
-}
-
-.comments-section {
-  margin-top: 20px;
-}
-
-
-.comment {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-}
-
-
-.comment-info {
-  font-weight: bold;
-}
-
-.comment-content {
-  margin-top: 5px;
-}
-
-
-.comment-form {
-  margin-top: 20px;
-}
-
-
-.comment-form input[type="text"],
-.comment-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-}
-
-.comment-form input[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-</style>
 
 <div class="post-index-wrapper">
-  <h1 class="page-ttile">Your Posts</h1>
+  <h1 class="page-title">Your Posts</h1>
   
   <div class="post-index-actions">
     <%= link_to "Create New Post", new_resident_post_path, class: "action-link" %>
     <%= link_to "Back to All Posts", resident_posts_path, class: "action-link" %>
   </div>
 
-  <div class="posts-index-container">
-  <% @user_posts.reverse_each do |post| %>
-    <div class="indiv-post">
+  <div class="resident-end-posts-index-container">
+  <% @user_posts.order(created_at: :desc).each do |post| %>
+    <div class="resident-end-indiv-post ">
       <p>
         <strong>
           <% if post.anonymous? %>
             <span>Anonymous:</span>
           <% else %>
-            <span><%= post.user.first_name %>:</span>
+            <span><%= post.user.first_name %> <%= post.user.last_name %>:</span>
           <% end %>
         </strong><br>
         <small class="posted-at-info">
@@ -111,7 +24,45 @@
       </p>
       <h3><%= post.title %></h3>
       <p><%= post.content %></p>
+      <% if post.comments.present? %>
+          <h6 class="comments-title">Comments:</h6>
+          <% comment_count = post.comments.count %>
+          <button class="toggle-comments-btn posts-buttons" data-post-id="<%= post.id %>" data-comment-count="<%= comment_count %>" data-visible="false">Show all <%= comment_count %> comments</button>
+          <div class="comments-container hidden" id="commentsContainer-<%= post.id %>">
+            <% post.comments.each do |comment| %>
+              <article>
+                <small>By: <%= comment.user.first_name %> <%= comment.user.last_name %></small> || 
+                <small><%= comment.created_at.in_time_zone("Asia/Manila").strftime("%d %b %Y, %H:%M:%S")  %></small>
+                <p><%= comment.content %></p>
+              </article>
+              <hr />
+            <% end %>
+          </div>
+        <% else %>
+        <div class="no-comment-statement">
+          <p><i><small>This post has no comments yet.</small></i></p>
+        </div>
+        <% end %>
     </div>
   <% end %>
   </div>
 </div>
+
+<script>
+    const toggleButtons = document.querySelectorAll(".toggle-comments-btn");
+    
+
+    toggleButtons.forEach(button => {
+      let commentCount = parseInt(button.getAttribute('data-comment-count'));
+
+      button.addEventListener("click", function() {
+        const postId = this.getAttribute("data-post-id");
+        const commentsContainer = document.getElementById(`commentsContainer-${postId}`);
+        const isVisible = this.getAttribute("data-visible") === "true";
+
+        commentsContainer.classList.toggle("hidden");
+        this.innerText = isVisible ? `Show all ${commentCount} comments` : "Hide comments";
+        this.setAttribute("data-visible", !isVisible);
+      });
+    });
+</script>

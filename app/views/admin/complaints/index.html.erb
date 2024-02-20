@@ -16,7 +16,7 @@
             <p class="status-badge <%= complaint.status %>"><%= complaint.status %></p>
           </div>
           <p><strong>Filed By:</strong> <%= complaint.user.email %></p>
-          <p class="complaint-details"><%= complaint.created_at.strftime('%d %b %Y, %H:%M:%S') %></p>
+          <p class="complaint-details"><%= complaint.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y, %H:%M:%S') %></p>
           <p class="complaint-details"><%= truncate(complaint.description, length: 100) %></p>
         </div>
       <% end %>
@@ -31,7 +31,7 @@
             <p class="status-badge <%= complaint.status %>"><%= complaint.status %></p>
           </div>
           <p><strong>Filed By:</strong> <%= complaint.user.email %></p>
-          <p class="complaint-details"><%= complaint.created_at.strftime('%d %b %Y, %H:%M:%S') %></p>
+          <p class="complaint-details"><%= complaint.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y, %H:%M:%S') %></p>
           <p class="complaint-details"><%= truncate(complaint.description, length: 100) %></p>
         </div>
       <% end %>
