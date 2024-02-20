@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= link likes.js
 //= link rails-ujs.js
+//= link application.css
