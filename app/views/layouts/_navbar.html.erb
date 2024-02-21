@@ -26,7 +26,45 @@
                 <li class='nav-links'><%= link_to 'Sign In', new_user_session_path %></li>
                 <li class='nav-links'><%= link_to 'Sign Up', new_user_registration_path %></li>
             <% end %>
+            <button class="hamburger">
+            <div class="bar"></div>
+            </button>
+        </ul>
+    </div>
+</nav>
+
+<div>
+<ul class='mobile-nav'>
+        <% if user_signed_in? %>
+            <% if current_user.pending? %>
+                <li class='mobile-nav-links'><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete, confirm: "Are you sure you want to sign out?" } %></li>
+            <% elsif current_user.admin? %>
+                <li class='mobile-nav-links'><%= link_to "Home", admin_dashboard_index_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Residents", admin_residents_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Complaints", admin_complaints_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Announcements", admin_announcements_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Posts", admin_posts_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete, confirm: "Are you sure you want to sign out?" } %></li>
+            <% else %>
+                <li class='mobile-nav-links'><%= link_to "Home", resident_dashboard_index_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Posts", resident_posts_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Complaints", resident_complaints_path %></li>
+                <li class='mobile-nav-links'><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete, confirm: "Are you sure you want to sign out?"  } %></li>
+            <% end %>
+            
+        <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% end %>
         </ul>
     </div>
 
-</nav>
+<script>
+    const menu_btn = document.querySelector(".hamburger");
+    const phone_menu = document.querySelector(".mobile-nav");
+    
+    menu_btn.addEventListener("click", () => {
+        menu_btn.classList.toggle("is-active");
+        phone_menu.classList.toggle("is-active");
+    })
+</script>
