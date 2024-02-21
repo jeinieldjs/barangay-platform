@@ -57,8 +57,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1'
 
   gem 'shoulda-matchers'
-
-  gem 'rest-client'
 end
 
 group :development do
@@ -78,6 +76,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'webpacker', '~> 5.0'
+gem 'rest-client'
 
 gem "font-awesome-sass", "~> 6.5.1"
